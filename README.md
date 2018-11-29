@@ -3,11 +3,11 @@
 Originally created as a CISC/CMPE 320 final project
 
 Made in collaboration with:
-- Evan Latsky (@evanlatsky)
-- Daniel Lok (@DannLK)
+- Evan Latsky ([@evanlatsky](https://github.com/evanlatsky))
+- Daniel Lok ([@DannLK](https://github.com/DannLK))
 - Katy Scott
-- Jonathan Stroz  (@15jas11)
-- Steven Ta  (@stevenleta)
+- Jonathan Stroz  ([@15jas11](https://github.com/15jas11))
+- Steven Ta  ([@stevenleta](https://github.com/stevenleta))
 
 <hr>
 
@@ -40,4 +40,4 @@ The original overview of the game (created when the project was started) is show
 <hr>
 When the project was moved to this repository, the original commits were not transferred.
 However, the branch history is shown below as a reminder of all the hard work that was put into this project by all the team members mentioned above:
-<img src="Other/Original_Commits.png" alt="Original commits"/>
+<img src="Other/Original_Commits.png" alt="Original commits" width="920px"/>
