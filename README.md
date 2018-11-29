@@ -34,6 +34,10 @@ Contains all the non-code assets for the main project (graphics and others)
 Contains other related non-code files that are not part of the main project (Class diagram and screenshots)
 
 <hr>
+The original overview of the game (created when the project was started) is shown in the diagram below:
+<img src="Other/Original_Summary_Diagram.png" alt="Original commits"/>
+
+<hr>
 When the project was moved to this repository, the original commits were not transferred.
 However, the branch history is shown below as a reminder of all the hard work that was put into this project by all the team members mentioned above:
-<img src="Other/Original_commits.png" alt="Original commits"/>
+<img src="Other/Original_Commits.png" alt="Original commits"/>
