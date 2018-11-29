@@ -4,7 +4,7 @@ Originally created as a CISC/CMPE 320 final project in collaboration with:
 
 - Evan Latsky ([@evanlatsky](https://github.com/evanlatsky))
 - Daniel Lok ([@DannLK](https://github.com/DannLK))
-- Katy Scott
+- Katy Scott ([@strixy16](https://github.com/strixy16))
 - Jonathan Stroz  ([@15jas11](https://github.com/15jas11))
 - Steven Ta  ([@stevenleta](https://github.com/stevenleta))
 
