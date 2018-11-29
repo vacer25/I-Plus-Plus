@@ -1,0 +1,27 @@
+class GUIWindow
+!!!136322.cpp!!!	GUIWindow(inout _controller : Controller)
+
+!!!136450.cpp!!!	~GUIWindow()
+
+    // TODO Implement destructor
+!!!153602.cpp!!!	Initialize() : void
+
+    
+	consolaFont = std::make_shared<sf::Font>();
+	if (!consolaFont->loadFromFile("consola.ttf")) {
+		std::cerr << "Error loading font!" << std::endl;
+		return;
+	}
+    
+!!!136578.cpp!!!	update(in deltaTime : float) : void
+
+	// Update the GUI to keep it interactive
+	mainDesktop.Update(deltaTime);
+!!!136706.cpp!!!	updateEvent(in event : sf::Event) : void
+
+	// Update the GUI with new user input events
+	mainDesktop.HandleEvent(event);
+!!!136834.cpp!!!	draw(inout window : sf::RenderWindow) : void
+
+	// Draw all the GUI element to the window
+	sfgui.Display(window);

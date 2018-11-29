@@ -1,0 +1,32 @@
+[Target]
+#include <iostream>
+using namespace std;
+void counter(){
+	int count=0;
+	cout << count++;
+}
+static int main() {
+	for(int i=0;i<5;i++) {
+		counter();
+	}
+}
+[Available]
+6
+int main () {
+int main (static) {
+void main () {
+[Current]
+0
+1
+2
+3
+4
+6
+7
+8
+9
+10
+[Instructions]
+Turn on the radio by displaying the 
+correct order of count. Expected output:
+"01234"

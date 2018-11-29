@@ -1,0 +1,73 @@
+class TiXmlUnknown
+!!!194690.cpp!!!	Clone() : TiXmlNode
+
+	TiXmlUnknown* clone = new TiXmlUnknown();
+
+	if ( !clone )
+		return 0;
+
+	CopyTo( clone );
+	return clone;
+!!!194818.cpp!!!	Print(inout cfile : FILE, in depth : int) : void
+
+	for ( int i=0; i<depth; i++ )
+		fprintf( cfile, "    " );
+	fprintf( cfile, "<%s>", value.c_str() );
+!!!194946.cpp!!!	Parse(in p : char, inout data : TiXmlParsingData, in encoding : TiXmlEncoding) : char
+
+	TiXmlDocument* document = GetDocument();
+	p = SkipWhiteSpace( p, encoding );
+
+	if ( data )
+	{
+		data->Stamp( p, encoding );
+		location = data->Cursor();
+	}
+	if ( !p || !*p || *p != '<' )
+	{
+		if ( document ) document->SetError( TIXML_ERROR_PARSING_UNKNOWN, p, data, encoding );
+		return 0;
+	}
+	++p;
+    value = "";
+
+	while ( p && *p && *p != '>' )
+	{
+		value += *p;
+		++p;
+	}
+
+	if ( !p )
+	{
+		if ( document )	
+			document->SetError( TIXML_ERROR_PARSING_UNKNOWN, 0, 0, encoding );
+	}
+	if ( p && *p == '>' )
+		return p+1;
+	return p;
+!!!195330.cpp!!!	Accept(inout visitor : TiXmlVisitor) : bool
+
+	return visitor->Visit( *this );
+!!!195458.cpp!!!	CopyTo(inout target : TiXmlUnknown) : void
+
+	TiXmlNode::CopyTo( target );
+!!!195586.cpp!!!	StreamIn(inout in : std::istream, inout tag : TIXML_STRING) : void
+
+	while ( in->good() )
+	{
+		int c = in->get();	
+		if ( c <= 0 )
+		{
+			TiXmlDocument* document = GetDocument();
+			if ( document )
+				document->SetError( TIXML_ERROR_EMBEDDED_NULL, 0, 0, TIXML_ENCODING_UNKNOWN );
+			return;
+		}
+		(*tag) += (char) c;
+
+		if ( c == '>' )
+		{
+			// All is well.
+			return;		
+		}
+	}

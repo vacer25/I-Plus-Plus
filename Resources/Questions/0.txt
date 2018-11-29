@@ -1,0 +1,19 @@
+[Target]
+#include <iostream>
+using namespage std;
+int main() {
+	cout << "Hello World!" << endl;
+}
+[Available]
+2
+3
+4
+int main() [
+]
+[Current]
+0
+1
+[Instructions]
+Write a simple Hello World Program to begin the game!
+Expected Output is:
+"Hello World!"

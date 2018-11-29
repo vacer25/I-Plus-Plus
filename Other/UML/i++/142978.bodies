@@ -1,0 +1,88 @@
+class TiXmlAttributeSet
+!!!180738.cpp!!!	TiXmlAttributeSet()
+
+	sentinel.next = &sentinel;
+	sentinel.prev = &sentinel;
+!!!180866.cpp!!!	~TiXmlAttributeSet()
+
+	assert( sentinel.next == &sentinel );
+	assert( sentinel.prev == &sentinel );
+!!!180994.cpp!!!	Add(inout addMe : TiXmlAttribute) : void
+
+    #ifdef TIXML_USE_STL
+	assert( !Find( TIXML_STRING( addMe->Name() ) ) );	// Shouldn't be multiply adding to the set.
+	#else
+	assert( !Find( addMe->Name() ) );	// Shouldn't be multiply adding to the set.
+	#endif
+
+	addMe->next = &sentinel;
+	addMe->prev = sentinel.prev;
+
+	sentinel.prev->next = addMe;
+	sentinel.prev      = addMe;
+!!!181122.cpp!!!	Remove(inout removeMe : TiXmlAttribute) : void
+
+	TiXmlAttribute* node;
+
+	for( node = sentinel.next; node != &sentinel; node = node->next )
+	{
+		if ( node == removeMe )
+		{
+			node->prev->next = node->next;
+			node->next->prev = node->prev;
+			node->next = 0;
+			node->prev = 0;
+			return;
+		}
+	}
+	assert( 0 );		// we tried to remove a non-linked attribute.
+!!!218370.cpp!!!	Find(in name : char) : TiXmlAttribute
+
+	for( TiXmlAttribute* node = sentinel.next; node != &sentinel; node = node->next )
+	{
+		if ( strcmp( node->name.c_str(), name ) == 0 )
+			return node;
+	}
+	return 0;
+!!!181762.cpp!!!	Find(in name : char) : TiXmlAttribute
+
+	for( TiXmlAttribute* node = sentinel.next; node != &sentinel; node = node->next )
+	{
+		if ( strcmp( node->name.c_str(), name ) == 0 )
+			return node;
+	}
+	return 0;
+!!!181890.cpp!!!	FindOrCreate(in _name : char) : TiXmlAttribute
+
+	TiXmlAttribute* attrib = Find( _name );
+	if ( !attrib ) {
+		attrib = new TiXmlAttribute();
+		Add( attrib );
+		attrib->SetName( _name );
+	}
+	return attrib;
+!!!218498.cpp!!!	Find(in name : std::string) : TiXmlAttribute
+
+	for( TiXmlAttribute* node = sentinel.next; node != &sentinel; node = node->next )
+	{
+		if ( node->name == name )
+			return node;
+	}
+	return 0;
+!!!182018.cpp!!!	Find(in name : std::string) : TiXmlAttribute
+
+	for( TiXmlAttribute* node = sentinel.next; node != &sentinel; node = node->next )
+	{
+		if ( node->name == name )
+			return node;
+	}
+	return 0;
+!!!182146.cpp!!!	FindOrCreate(in _name : std::string) : TiXmlAttribute
+
+	TiXmlAttribute* attrib = Find( _name );
+	if ( !attrib ) {
+		attrib = new TiXmlAttribute();
+		Add( attrib );
+		attrib->SetName( _name );
+	}
+	return attrib;

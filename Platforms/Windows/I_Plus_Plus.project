@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Project Name="I_Plus_Plus" Version="10.0.0" InternalType="Console">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
+  </Plugins>
+  <Description/>
+  <Dependencies/>
+  <VirtualDirectory Name="src">
+    <File Name="../../Code/Sound.cpp"/>
+    <File Name="../../Code/Sound.h"/>
+    <File Name="../../Code/Player.h"/>
+    <VirtualDirectory Name="TinyXML">
+      <File Name="../../Code/TinyXML/tinyxmlparser.cpp"/>
+      <File Name="../../Code/TinyXML/tinyxmlerror.cpp"/>
+      <File Name="../../Code/TinyXML/tinyxml.h"/>
+      <File Name="../../Code/TinyXML/tinyxml.cpp"/>
+      <File Name="../../Code/TinyXML/tinystr.h"/>
+      <File Name="../../Code/TinyXML/tinystr.cpp"/>
+    </VirtualDirectory>
+    <File Name="../../Code/LevelScreen.h"/>
+    <File Name="../../Code/LevelScreen.cpp"/>
+    <File Name="../../Code/StartMenu.h"/>
+    <File Name="../../Code/StartMenu.cpp"/>
+    <File Name="../../Code/PauseWindow.h"/>
+    <File Name="../../Code/PauseWindow.cpp"/>
+    <File Name="../../Code/InstructionsWindow.cpp"/>
+    <File Name="../../Code/InstructionsWindow.h"/>
+    <File Name="../../Code/GUIWindow.cpp"/>
+    <File Name="../../Code/GUIWindow.h"/>
+    <File Name="../../Code/i++.cpp"/>
+    <File Name="../../Code/Entity.h"/>
+    <File Name="../../Code/Controller.h"/>
+    <File Name="../../Code/Controller.cpp"/>
+    <File Name="../../Code/Constants.h"/>
+    <File Name="../../Code/CodingWindow.h"/>
+    <File Name="../../Code/CodingWindow.cpp"/>
+  </VirtualDirectory>
+  <Settings Type="Executable">
+    <GlobalSettings>
+      <Compiler Options="-std=c++11;" C_Options="" Assembler="">
+        <IncludePath Value="."/>
+        <IncludePath Value="$(IntermediateDirectory)\..\..\..\External Libraries\Windows\SFML-2.5.0\include"/>
+        <IncludePath Value="$(IntermediateDirectory)\..\..\..\External Libraries\Windows\SFGUI\include"/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+        <LibraryPath Value="$(IntermediateDirectory)\..\..\..\External Libraries\Windows\SFML-2.5.0\lib"/>
+        <LibraryPath Value="$(IntermediateDirectory)\..\..\..\External Libraries\Windows\SFGUI\lib"/>
+        <Library Value="sfml-audio"/>
+        <Library Value="sfml-graphics"/>
+        <Library Value="sfml-window"/>
+        <Library Value="sfml-system"/>
+        <Library Value="sfgui"/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="MinGW 6.3.0 (32-bit)" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g;-O0;-Wall" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <BuildSystem Name="Default"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild>
+        <Command Enabled="yes">cp -a -u $(IntermediateDirectory)\..\..\..\Resources\. $(IntermediateDirectory)</Command>
+      </PreBuild>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="MinGW 6.3.0 (32-bit)" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-O2;-Wall" C_Options="-O2;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+        <Preprocessor Value="NDEBUG"/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Release" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <BuildSystem Name="Default"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+</CodeLite_Project>

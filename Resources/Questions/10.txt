@@ -1,0 +1,80 @@
+[Target]
+#include <iostream>
+using namespace std;
+void bubbleSort(int elevatorFloors[], int n) 
+{ 
+   int i, j; 
+   bool swapped; 
+   for (i = 0; i < n-1; i++) 
+   { 
+     swapped = false; 
+     for (j = 0; j < n-i-1; j++) 
+     { 
+        if (elevatorFloors[j] > elevatorFloors[j+1]) 
+        { 
+           swap(&elevatorFloors[j], &elevatorFloors[j+1]); 
+           swapped = true; 
+        } 
+     } 
+     if (swapped == false) 
+        break; 
+   } 
+} 
+int main() 
+{ 
+    int elevatorFloors[] = {6, 9, 1, 4, 10, 11, 16, 2, 7, 8, 3, 5, 14, 12, 15}; 
+    int n = sizeof(elevatorFloors)/sizeof(elevatorFloors[0]); 
+    bubbleSort(elevatorFloors, n); 
+    printf("Sorted array: \n"); 
+    printArray(elevatorFloors, n);
+    return 0; 
+} 
+[Available]
+5
+6
+8
+9
+13
+14
+29
+for (i=0; i <n; i++)
+char swapped;
+swapped = true;
+for (j=0; j<n-1; j++)
+swap(elevatorFloors[j], elevatorFloors[j+1]);
+if (swapped == true)
+return 1;
+
+[Current]
+0
+1
+2
+3
+4
+7
+8
+10
+11
+12
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+[Instructions]
+The elevator floors are all out of order! Use a 
+bubble sort to sort the floors in ascending order.
+Assume the swap function exists which swaps two
+integers. Assume the printArray function also exists.
+Expected output:
+"Sorted array: 1,2,3,4,5,6..."
+

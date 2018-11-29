@@ -1,0 +1,47 @@
+[Target]
+#include <iostream>
+using namespace std;
+int main(void) 
+{ 
+    int i; 
+    for (i=1; i<=100; i++) 
+    { 
+        if (i%15 == 0)         
+            cout << ("FizzBuzz\t") << endl;      
+        else if ((i%3) == 0)     
+            cout << ("Fizz\t") << endl;                  
+        else if ((i%5) == 0)                        
+            cout << ("Buzz\t") << endl;                 
+        else            
+            cout << ("%d\t", i) << endl;                 
+    } 
+    return 0; 
+}
+[Available]
+5
+7
+8
+9
+10
+12
+14
+16
+for (i=0; i<99; i++)
+if ((i%15) != 0)
+else if ((i%3) != 0)
+[Current]
+0
+1
+2
+3
+4
+6
+8
+17
+18
+19
+[Instructions]
+Write a program that prints the numbers 
+from 1 to 100 and for multiples of '3' 
+print "Fizz" instead of the number and 
+for the multiples of '5' print "Buzz".

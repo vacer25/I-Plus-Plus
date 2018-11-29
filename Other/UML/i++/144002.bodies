@@ -1,0 +1,111 @@
+class TiXmlPrinter
+!!!203138.cpp!!!	VisitEnter(in doc : TiXmlDocument) : bool
+
+	return true;
+!!!203266.cpp!!!	VisitExit(in doc : TiXmlDocument) : bool
+
+	return true;
+!!!203394.cpp!!!	VisitEnter(in element : TiXmlElement, in firstAttribute : TiXmlAttribute) : bool
+
+	DoIndent();
+	buffer += "<";
+	buffer += element.Value();
+
+	for( const TiXmlAttribute* attrib = firstAttribute; attrib; attrib = attrib->Next() )
+	{
+		buffer += " ";
+		attrib->Print( 0, 0, &buffer );
+	}
+
+	if ( !element.FirstChild() ) 
+	{
+		buffer += " />";
+		DoLineBreak();
+	}
+	else 
+	{
+		buffer += ">";
+		if (    element.FirstChild()->ToText()
+			  && element.LastChild() == element.FirstChild()
+			  && element.FirstChild()->ToText()->CDATA() == false )
+		{
+			simpleTextPrint = true;
+			// no DoLineBreak()!
+		}
+		else
+		{
+			DoLineBreak();
+		}
+	}
+	++depth;	
+	return true;
+!!!203522.cpp!!!	VisitExit(in element : TiXmlElement) : bool
+
+	--depth;
+	if ( !element.FirstChild() ) 
+	{
+		// nothing.
+	}
+	else 
+	{
+		if ( simpleTextPrint )
+		{
+			simpleTextPrint = false;
+		}
+		else
+		{
+			DoIndent();
+		}
+		buffer += "</";
+		buffer += element.Value();
+		buffer += ">";
+		DoLineBreak();
+	}
+	return true;
+!!!203650.cpp!!!	Visit(in declaration : TiXmlDeclaration) : bool
+
+	DoIndent();
+	declaration.Print( 0, 0, &buffer );
+	DoLineBreak();
+	return true;
+!!!203778.cpp!!!	Visit(in text : TiXmlText) : bool
+
+	if ( text.CDATA() )
+	{
+		DoIndent();
+		buffer += "<![CDATA[";
+		buffer += text.Value();
+		buffer += "]]>";
+		DoLineBreak();
+	}
+	else if ( simpleTextPrint )
+	{
+		TIXML_STRING str;
+		TiXmlBase::EncodeString( text.ValueTStr(), &str );
+		buffer += str;
+	}
+	else
+	{
+		DoIndent();
+		TIXML_STRING str;
+		TiXmlBase::EncodeString( text.ValueTStr(), &str );
+		buffer += str;
+		DoLineBreak();
+	}
+	return true;
+!!!203906.cpp!!!	Visit(in comment : TiXmlComment) : bool
+
+	DoIndent();
+	buffer += "<!--";
+	buffer += comment.Value();
+	buffer += "-->";
+	DoLineBreak();
+	return true;
+!!!204034.cpp!!!	Visit(in unknown : TiXmlUnknown) : bool
+
+	DoIndent();
+	buffer += "<";
+	buffer += unknown.Value();
+	buffer += ">";
+	DoLineBreak();
+	return true;

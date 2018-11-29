@@ -1,0 +1,366 @@
+class CodeFrame
+!!!131074.cpp!!!	moveCurrentlySelectedLineOfCode() : void
+
+    
+    // Get the line of code to move
+    LineOfCode *lineOfCodeToMove = linesOfCode[currentlySelectedLine];
+    
+    // Remove it from the current frame
+    removeLineOfCode(currentlySelectedLine);
+    
+    // If the last line was moved, set the selected line to the new last one
+    if(currentlySelectedLine >= numberOfLines) {
+        currentlySelectedLine = std::max(numberOfLines - 1, 0);
+    }
+    
+    // Add it to the other frame at its insertion point
+    // Increment its current insertion point to automatically move on to the next line
+    if(isAvailableLinesFrame) {
+        CodingWindow::currentCodeFrame->addLineOfCode(lineOfCodeToMove);
+        CodingWindow::currentCodeFrame->incrementCurrentlySelectedLineInsertion();
+    } else {
+        CodingWindow::availableCodeFrame->addLineOfCode(lineOfCodeToMove);
+        CodingWindow::availableCodeFrame->incrementCurrentlySelectedLineInsertion();
+    }
+    
+    // Exit activated line mode
+    CodingWindow::isCurrentlyInActivatedLineMode = false;
+    
+!!!131330.cpp!!!	~CodeFrame()
+ /* TODO */
+!!!131458.cpp!!!	initialize(in linesScrollWindow : sfg::ScrolledWindow::Ptr) : void
+
+    
+    // Calculate the positions of the available lines
+    linesStartPoint = linesScrollWindow->GetAbsolutePosition();
+    
+    // If this is the available code frame, get the line dimensions from the position of the 2nd line of code's label
+    if(isAvailableLinesFrame) {
+        if(numberOfLines < 2) {
+            // TODO: catch this exception!
+            throw std::length_error("At least 2 lines of code must be present in the available lines frame!");
+        }
+        linesDimensions = sf::Vector2f(linesScrollWindow->GetAllocation().width , linesOfCode[1]->getLable()->GetAbsolutePosition().y);
+    } 
+    // If the is is the current code frame, get the line y dimensions from the available code frame's line dimensions since the current code frame may be initially empty
+    else {
+        linesDimensions = sf::Vector2f(linesScrollWindow->GetAllocation().width , CodingWindow::availableCodeFrame->getLinesDimensions().y);
+    }
+    
+!!!131586.cpp!!!	reInitialize() : void
+
+    
+    // Reset the selected line position and insertion point to the start of the list of lines of code
+    currentlySelectedLine = 0;
+    currentlySelectedLineInsertion = 0;
+    
+!!!131714.cpp!!!	addLineOfCodeAtEnd(inout lineOfCodeToAdd : LineOfCode) : bool
+
+    
+    // Add the line of code at the end
+    return addLineOfCode(lineOfCodeToAdd, numberOfLines);
+    
+!!!131842.cpp!!!	addLineOfCode(inout lineOfCodeToAdd : LineOfCode) : bool
+
+    
+    // Add the line of code at the insertion point
+    return addLineOfCode(lineOfCodeToAdd, currentlySelectedLineInsertion);
+    
+!!!131970.cpp!!!	addLineOfCode(inout lineOfCodeToAdd : LineOfCode, in index : int) : bool
+
+    
+    // Flag to indicate if the line was inserted
+    bool didAddLine = false;
+    
+    // If the index to insert at is negative, don't do anything
+    if(index < 0) {
+        return false;
+    }
+    
+    // If inserting in the middle, use the insert function
+    if(index < numberOfLines) {
+        linesOfCode.insert(linesOfCode.begin() + index, lineOfCodeToAdd);
+        numberOfLines++;
+        didAddLine = true;
+    }
+    
+    // If inserting in the middle, use the push_back function
+    else if(index == numberOfLines) {
+        linesOfCode.push_back(lineOfCodeToAdd);
+        numberOfLines++;
+        didAddLine = true;
+    }
+    
+    // If a line was added, add its label to the scroll box at the current index
+    if(didAddLine) {
+        
+        // If the line was added at the end, simply add it ti the scroll box
+        if(index == numberOfLines) {
+            linesScrollBox->Pack(lineOfCodeToAdd->getLable());
+        } 
+        // Otherwise remove all the entries and add them all in order since SFGUI does not support adding at a certain index
+        else {
+            linesScrollBox->RemoveAll();
+            for(LineOfCode *lineOfCodeToAdd : linesOfCode) {
+                linesScrollBox->Pack(lineOfCodeToAdd->getLable());
+            }
+        }
+        
+    }
+    
+    // Return if the line was inserted or not
+    return didAddLine;
+    
+!!!132098.cpp!!!	removeLineOfCode(in index : int) : bool
+
+    
+    // If the index to remove is negative or greater than the size of the list, don't do anything
+    if(index < 0 || index >= numberOfLines) {
+        return false;
+    }
+      
+    // Remove the line's label from the scroll box
+    linesScrollBox->Remove(linesOfCode[index]->getLable());
+    
+    // Remove the line from the list
+    linesOfCode.erase(linesOfCode.begin() + index);
+    numberOfLines--;
+    
+    // Make sure the currently selected insertion point index stays in range
+    if(currentlySelectedLineInsertion >= numberOfLines + 1) {
+        currentlySelectedLineInsertion = std::max(numberOfLines, 0);
+    } else if(currentlySelectedLineInsertion < 0) {
+        currentlySelectedLineInsertion = 0;
+    }
+    
+    // Return success
+    return true;
+    
+!!!132226.cpp!!!	removeAllLinesOfCode() : void
+
+
+    // Remove all line's label from the scroll box
+    linesScrollBox->RemoveAll();
+    
+    // Remove all the lines from the list
+    linesOfCode.clear();
+    numberOfLines = 0;
+
+!!!132354.cpp!!!	hasCorrectSequenceOfLines() : bool
+
+    
+    // Only check the correct sequence on the current lines code frame
+    if(isAvailableLinesFrame) {
+        return false;
+    }
+    
+    // If the current number of lines is not the target number of lines, current code frame does not have the correct sequence of lines
+    if(numberOfLines != numberOfTargetLines) {
+        return false;
+    }
+    
+    // Sequence counter
+    int currentExpectedSequence = 0;
+    
+    // Loop over all the lines of code in the current code frame
+    for(LineOfCode *lineOfCode: linesOfCode) {
+        // If a lines does not match the expected sequence, the current code frame does not have the correct sequence of lines
+        if(lineOfCode->getSequenceID() != currentExpectedSequence) {
+            return false;
+        }
+        currentExpectedSequence++;
+    }
+    
+    // If all the lines matched the expected sequence, the current code frame has the correct sequence of lines (the question has been solved)
+    return true;
+    
+!!!132482.cpp!!!	update(in canMoveLineNow : bool) : void
+
+    
+    // Update using mouse if mouse controls are active
+    if(CodingWindow::useMouseControl) {
+        
+        // If the coding window is not in activated line mode
+        if(!CodingWindow::isCurrentlyInActivatedLineMode) {
+            
+            // If the mouse is currently over the selected frame, update the currently selected line index
+            if(isAvailableLinesFrame == CodingWindow::isCurrentlyInAvailableLinesFrame && isAvailableLinesFrame == CodingWindow::isMouseOverAvailableCodeFrame() && isAvailableLinesFrame != CodingWindow::isMouseOverCurrentCodeFrame()) {
+            
+                // Set the selected line to the one with the mouse over it
+                currentlySelectedLine = (Controller::mousePosition.y - linesStartPoint.y) / linesDimensions.y;
+                
+                // Make sure the selection stays in range
+                if(currentlySelectedLine >= numberOfLines) {
+                    currentlySelectedLine = std::max(numberOfLines - 1, 0);
+                } else if(currentlySelectedLine < 0) {
+                    currentlySelectedLine = 0;
+                }
+            
+            }
+            
+        }
+        // If the coding window is in activated line mode
+        else {
+            
+            // If the mouse is currently over the non-selected frame
+            if(isAvailableLinesFrame == CodingWindow::isMouseOverAvailableCodeFrame() && isAvailableLinesFrame != CodingWindow::isMouseOverCurrentCodeFrame()) {
+            
+                // In the non-selected frame, update the currently selected insertion point index
+                if(isAvailableLinesFrame != CodingWindow::isCurrentlyInAvailableLinesFrame) {
+                
+                    // Set the currently selected insertion point index to the one with the mouse over it
+                    currentlySelectedLineInsertion = (Controller::mousePosition.y - linesStartPoint.y + linesDimensions.y / 2) / linesDimensions.y;
+                    
+                    // Make sure the selection stays in range
+                    if(currentlySelectedLineInsertion >= numberOfLines + 1) {
+                        currentlySelectedLineInsertion = std::max(numberOfLines, 0);
+                    } else if(currentlySelectedLineInsertion < 0) {
+                        currentlySelectedLineInsertion = 0;
+                    }
+                
+                    // If the left mouse button is released
+                    if(Controller::mouseLeftIsReleased) {
+                        // If the activated line mode was already entered on a previous frame, place it into the other frame (available -> current or current -> available) and exit activated line mode
+                        if(canMoveLineNow) {
+                            // Call the move line function in the selected frame to move the line to the currently non-selected frame
+                            if(isAvailableLinesFrame) {
+                                CodingWindow::currentCodeFrame->moveCurrentlySelectedLineOfCode();
+                            } else {
+                                CodingWindow::availableCodeFrame->moveCurrentlySelectedLineOfCode();
+                            }                            
+                        }
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    // Otherwise update using the keyboard
+    else {
+        
+        // If no key was pressed, don't do anything
+        if(!Controller::keyUpIsPressed && !Controller::keyDownIsPressed && !Controller::keySelectIsPressed) {
+            return;
+        }
+        
+        // If the coding window is in activated line mode and the select key was not pressed, don't change the selected line in the currently selected frame
+        if(CodingWindow::isCurrentlyInActivatedLineMode && isAvailableLinesFrame == CodingWindow::isCurrentlyInAvailableLinesFrame && !Controller::keySelectIsPressed) {
+            return;   
+        }
+        
+        // If the coding window is not in activated line mode, don't change the selected line in the non-selected selected frame
+        if(!CodingWindow::isCurrentlyInActivatedLineMode && isAvailableLinesFrame != CodingWindow::isCurrentlyInAvailableLinesFrame) {
+            return;   
+        }
+        
+        // If the coding window is in activated line mode, change line insertion point, otherwise, change currently selected line
+        int allowInsertingAtLastIndex = 0;
+        int *currentSelectionToChange = &currentlySelectedLine;
+        if(CodingWindow::isCurrentlyInActivatedLineMode) {
+            // In the activated line mode, the selection of the insertion point can be at the last index, so 1 must be added to the number of lines
+            currentSelectionToChange = &currentlySelectedLineInsertion;
+            allowInsertingAtLastIndex = 1;
+        }
+        
+        // If the up / down keys are pressed, move the current selection up/down
+        if(Controller::keyDownIsPressed) {
+            (*currentSelectionToChange)++;
+        } else if(Controller::keyUpIsPressed) {
+            (*currentSelectionToChange)--;
+        }
+        
+        // Make sure the selection stays in range
+        if(*currentSelectionToChange >= numberOfLines + allowInsertingAtLastIndex) {
+    #ifdef USE_CODING_SCREEN_LINE_SELECTION_WRAP_AROUND
+            *currentSelectionToChange = 0;
+    #else
+            *currentSelectionToChange = std::max(numberOfLines - 1 + allowInsertingAtLastIndex, 0);
+    #endif
+        } else if(*currentSelectionToChange < 0 + allowInsertingAtLastIndex) {
+    #ifdef USE_CODING_SCREEN_LINE_SELECTION_WRAP_AROUND
+            *currentSelectionToChange = std::max(numberOfLines - 1 + allowInsertingAtLastIndex, 0);
+    #else
+            *currentSelectionToChange = 0;
+    #endif
+        }
+        
+        // If the select key is pressed and the current frame is selected
+        if(Controller::keySelectIsPressed && isAvailableLinesFrame == CodingWindow::isCurrentlyInAvailableLinesFrame) {
+            
+            // If the activated line mode was already entered on a previous frame, place it into the other frame (available -> current or current -> available) and exit activated line mode
+            if(CodingWindow::isCurrentlyInActivatedLineMode && canMoveLineNow) {
+                moveCurrentlySelectedLineOfCode();
+            }
+            
+        }
+    
+    }
+    
+!!!132610.cpp!!!	draw(inout window : sf::RenderWindow) : void
+
+    
+    // If the info window is open, don't draw any selections
+    if(CodingWindow::infoWindowIsOpen) {
+        return;
+    }
+
+    // If this frame is not selected and the coding window is in activated line mode, draw the insertion selection line where the line from the currently selected frame will be inserted
+    if(CodingWindow::isCurrentlyInActivatedLineMode && isAvailableLinesFrame != CodingWindow::isCurrentlyInAvailableLinesFrame) {
+        sf::Vertex insertionSelectionLine[2];
+        insertionSelectionLine[0].position = sf::Vector2f(linesStartPoint.x, linesStartPoint.y + linesDimensions.y * currentlySelectedLineInsertion);
+        insertionSelectionLine[0].color  = sf::Color(CODING_SCREEN_ACTIVATED_LINE_COLOR);
+        insertionSelectionLine[1].position = sf::Vector2f(linesStartPoint.x + linesDimensions.x, linesStartPoint.y + linesDimensions.y * currentlySelectedLineInsertion);
+        insertionSelectionLine[1].color = sf::Color(CODING_SCREEN_ACTIVATED_LINE_COLOR);
+        window.draw(insertionSelectionLine, 2, sf::LinesStrip);
+        
+    }
+    
+    // If this frame is selected
+    if(isAvailableLinesFrame == CodingWindow::isCurrentlyInAvailableLinesFrame) {
+        
+        // Set the outline and fill colors of the selection rectange to the right colors depending on if the coding window is in activated line mode or not
+        sf::Color fillColor = sf::Color(sf::Color(CODING_SCREEN_SELECTED_LINE_COLOR, CODING_SCREEN_LINE_SELECTION_TRANSPARANCY));
+        sf::Color outlineColor = sf::Color(CODING_SCREEN_SELECTED_LINE_COLOR);
+        if(CodingWindow::isCurrentlyInActivatedLineMode) {
+            fillColor = sf::Color(sf::Color(CODING_SCREEN_ACTIVATED_LINE_COLOR, CODING_SCREEN_LINE_SELECTION_TRANSPARANCY));
+            outlineColor = sf::Color(CODING_SCREEN_ACTIVATED_LINE_COLOR);
+        }
+        
+        // Draw the selection rectange on top of the currently selected line
+        sf::RectangleShape currentSelectionRectange;
+        currentSelectionRectange.setSize(sf::Vector2f(linesDimensions.x, linesDimensions.y));
+        currentSelectionRectange.setOutlineThickness(1);
+        currentSelectionRectange.setFillColor(fillColor);
+        currentSelectionRectange.setOutlineColor(outlineColor);
+        currentSelectionRectange.setPosition(sf::Vector2f(linesStartPoint.x, linesStartPoint.y + linesDimensions .y * currentlySelectedLine));
+        window.draw(currentSelectionRectange);
+        
+    }
+    
+!!!132738.cpp!!!	isEmpty() : bool
+
+    // Empty if the number of lines is zero
+    return numberOfLines == 0;
+!!!132866.cpp!!!	getLinesDimensions() : sf::Vector2f
+
+    // Return the lines dimensions
+    return linesDimensions;
+!!!132994.cpp!!!	setNumberOfTargetLines(in _numberOfTargetLines : int) : void
+
+    if(_numberOfTargetLines > 0) {
+        numberOfTargetLines = _numberOfTargetLines;
+    }
+!!!133122.cpp!!!	incrementCurrentlySelectedLineInsertion() : void
+
+    
+    // Increment the current insertion point 
+    currentlySelectedLineInsertion++;
+    
+    // Make sure it stays in bounds
+    if(currentlySelectedLineInsertion > numberOfLines + 1) {
+        currentlySelectedLineInsertion = numberOfLines + 1;
+    }
+    

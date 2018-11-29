@@ -1,0 +1,123 @@
+class PauseWindow
+!!!145410.cpp!!!	PauseWindow(inout _controller : Controller)
+
+    
+	// ==================== CREATE PAUSE WINDOW ====================
+    
+	// Create GUI for pause window
+    pauseWindow = sfg::Window::Create();
+    
+    // ==================== SET UP FONT(S) ====================
+
+    // Set up the default font for all the labels
+	mainDesktop.GetEngine().GetResourceManager().SetDefaultFont(consolaFont);
+    
+    // Set the font size of all elements
+	mainDesktop.GetEngine().SetProperty("Frame#mainFrame", "FontSize", GUI_WINDOW_TITLE_FONT_SIZE);
+    mainDesktop.GetEngine().SetProperty("Button", "FontSize", GUI_WINDOW_DEFAULT_FONT_SIZE);
+    
+    // ==================== SET UP BUTTONS AND WINDOW TO HOLD BUTTON ====================
+    
+	// Create the main frame
+	auto mainFrame = sfg::Frame::Create("Pause");
+	mainFrame->SetAlignment(sf::Vector2f(0.5f, 0.5f));
+    mainFrame->SetId("mainFrame");
+    
+    // Create the controls buttons box to hold the run and exit buttons
+	auto buttonBox = sfg::Box::Create(sfg::Box::Orientation::VERTICAL, WINDOW_PADDING); // Orientation and padding
+
+    // Create the return to game button and add it to the controls buttons box
+    auto returnButton = sfg::Button::Create("Return To Game");
+    returnButton->SetId("returnButton");
+    returnButton->GetSignal(sfg::Widget::OnLeftClick).Connect([this] {this->close();});
+    buttonBox->Pack(returnButton, true, true);
+    
+    //Create instructions window
+    auto instructionsButton = sfg::Button::Create("Instruction");
+    instructionsButton->SetId("instructionsButton");
+    instructionsButton->GetSignal(sfg::Widget::OnLeftClick).Connect([this] {this->openInstructionsWindow();});
+    buttonBox->Pack(instructionsButton, true, true);
+    
+    // Create the exit button and add it to the controls buttons box
+    auto exitButton = sfg::Button::Create("Exit To Main Menu");
+    exitButton->SetId("exitButton");
+    exitButton->GetSignal(sfg::Widget::OnLeftClick).Connect([this] {this->exitToStartMenu();});
+    buttonBox->Pack(exitButton, true, true);
+    
+    // ==================== SET UP GUI WINDOW ====================
+    
+    // Add the button box to the main frame and add that to the pause window
+    mainFrame->Add(buttonBox);
+    pauseWindow->Add(mainFrame);
+    
+	// Disable resizing
+	pauseWindow->SetStyle(pauseWindow->GetStyle() ^ sfg::Window::TITLEBAR);
+	pauseWindow->SetStyle(pauseWindow->GetStyle() ^ sfg::Window::RESIZE);
+    
+    // Add the pause window to the main desktop
+    mainDesktop.Add(pauseWindow);
+    
+    // Hide the window when it is first created
+    hide();
+    
+!!!145538.cpp!!!	~PauseWindow()
+
+	// TODO Implement destructor
+!!!145666.cpp!!!	exitToStartMenu() : void
+
+    
+    // Set the game state to the start screen and (TODO) open the start screen
+    controller->setGameState(START_SCREEN);
+    
+!!!145794.cpp!!!	openInstructionsWindow() : void
+
+    
+    // Open the instructions window through the controller which will auto hide the pause window
+    controller->openInstructionsWindow();
+    
+!!!145922.cpp!!!	update(in deltaTime : float) : void
+
+	// Update the window GUI to keep it interactive
+    GUIWindow::update(deltaTime);
+!!!146050.cpp!!!	updateEvent(in event : sf::Event) : void
+
+	// Update the window GUI with new user input events
+	GUIWindow::updateEvent(event);
+!!!146178.cpp!!!	draw(inout window : sf::RenderWindow) : void
+
+    
+    // If the screen is not shown yet (its not in the correct position on screen), show it before drawing
+    if(!isShown) {
+        show();
+    }
+    
+	// Draw all the GUI element to the window
+	GUIWindow::draw(window);
+    
+!!!146306.cpp!!!	show() : void
+
+    
+    // Show the window by moving it to the correct position
+    pauseWindow->SetAllocation(sf::FloatRect(WIDTH / 2 - PAUSE_WINDOW_WIDTH / 2, HEIGHT / 2 - PAUSE_WINDOW_HEIGHT / 2, PAUSE_WINDOW_WIDTH, PAUSE_WINDOW_HEIGHT)); 
+    
+    // Set the flag
+    isShown = true;
+    
+!!!146434.cpp!!!	hide() : void
+
+    
+    // Hide the window by moving it off-screen
+    pauseWindow->SetAllocation(sf::FloatRect(WIDTH, HEIGHT, PAUSE_WINDOW_WIDTH, PAUSE_WINDOW_HEIGHT)); 
+    
+    // Clear the flag
+    isShown = false;
+    
+!!!146562.cpp!!!	close() : void
+
+    
+    // Hide the window
+    hide();
+    
+    // Make the controller stop updating it
+    controller->pauseWindowIsOpen = false; 
+    

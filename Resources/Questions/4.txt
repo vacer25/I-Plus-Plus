@@ -1,0 +1,54 @@
+[Target]
+#include <iostream>
+using namespace std;
+int main() {
+	int x(2);
+	switch(x) {
+		case 0:
+		cout<< "I don't love C++" << endl;
+		break;
+		case 1:
+		cout<< "I don't love C++" << endl;
+		break;
+		case 2:
+		cout<< "I love C++" << endl;
+		break;
+		case 3:
+		cout<< "I don't love C++" << endl;
+		break;
+		default:
+		cout<< "I don't love C++" << endl;
+		break;
+	}
+}
+[Available]
+0
+1
+2
+3
+20
+21
+int x(0);
+int x(1);
+int x(3);
+int x == 2;
+[Current]
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+[Instructions]
+Expected Output:
+"I love C++"

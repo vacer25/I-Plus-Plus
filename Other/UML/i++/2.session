@@ -1,0 +1,13 @@
+window_sizes 1920 1027 279 1635 975 0
+cleanlooks_style
+diagrams
+  active  classdiagram_ref 128130 // Class Diagram
+    1599 891 76 A0-Landscape 16 86
+end
+show_stereotypes
+selected class_ref 153218 // TClock
+open
+  classview_ref 128130 // Code
+  artifact_ref 128130 // CodingWindow
+end
+end

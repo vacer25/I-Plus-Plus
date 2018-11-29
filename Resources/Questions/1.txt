@@ -1,0 +1,27 @@
+[Target]
+#include <iostream>
+using namespace std;
+int main() {
+	int count(4);
+	count++;
+	while (count == 5) { 
+		cout << "Good Morning!" << endl; 
+		count++;
+	}
+}
+[Available]
+4
+6
+7
+8
+9
+count--
+[Current]
+0
+1
+2
+3
+5
+[Instructions]
+The expected output is:
+"Good Morning!"

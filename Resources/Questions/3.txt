@@ -1,0 +1,23 @@
+[Target]
+#include <iostream>
+using namespace std;
+int main() {
+	string findkeys[] = {"keys", "wrong", "nope", "oops"}; // size of array
+	cout << findkeys[0] << endl;
+}
+[Available]
+4
+cout << findkeys[1] << endl;
+cout << findkeys[2] << endl;
+cout << findkeys[3] << endl;
+[Current]
+0
+1
+2
+3
+5
+[Instructions]
+Find and output the "keys" value in the array to
+start the car!
+Expected Output:
+"keys"

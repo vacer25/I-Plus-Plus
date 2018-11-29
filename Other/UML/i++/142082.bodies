@@ -1,0 +1,36 @@
+class TiXmlString
+!!!159618.cpp!!!	reserve(in cap : TiXmlString::size_type) : void
+
+	if (cap > capacity())
+	{
+		TiXmlString tmp;
+		tmp.init(length(), cap);
+		memcpy(tmp.start(), data(), length());
+		swap(tmp);
+	}
+!!!159746.cpp!!!	assign(in str : char, in len : TiXmlString::size_type) : TiXmlString
+
+	size_type cap = capacity();
+	if (len > cap || cap > 3*(len + 8))
+	{
+		TiXmlString tmp;
+		tmp.init(len);
+		memcpy(tmp.start(), str, len);
+		swap(tmp);
+	}
+	else
+	{
+		memmove(start(), str, len);
+		set_size(len);
+	}
+	return *this;
+!!!159874.cpp!!!	append(in str : char, in len : TiXmlString::size_type) : TiXmlString
+
+	size_type newsize = length() + len;
+	if (newsize > capacity())
+	{
+		reserve (newsize + capacity());
+	}
+	memmove(finish(), str, len);
+	set_size(newsize);
+	return *this;

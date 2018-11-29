@@ -1,0 +1,10 @@
+class Object
+!!!153730.cpp!!!	GetPropertyInt(in name : std::string) : int
+
+    return atoi(properties[name].c_str());
+!!!153858.cpp!!!	GetPropertyFloat(in name : std::string) : float
+
+    return strtod(properties[name].c_str(), NULL);
+!!!153986.cpp!!!	GetPropertyString(in name : std::string) : std::string
+
+    return properties[name];

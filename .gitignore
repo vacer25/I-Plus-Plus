@@ -1,0 +1,41 @@
+# Windows
+
+# Exclude all of SFGUI except /include and /lib and /bin
+External Libraries/Windows/SFGUI/*
+!External Libraries/Windows/SFGUI/include
+!External Libraries/Windows/SFGUI/lib
+!External Libraries/Windows/SFGUI/bin
+
+# Exclude all of SFML except /include and /lib and /bin
+External Libraries/Windows/SFML-2.5.0/*
+!External Libraries/Windows/SFML-2.5.0/include
+!External Libraries/Windows/SFML-2.5.0/lib
+!External Libraries/Windows/SFML-2.5.0/bin
+
+# Exclude Windows CodeLite project settings to not overwrite library file paths
+Platforms/Windows/*.mk
+Platforms/Windows/*.txt
+
+# Exclude Windows project builds to not commit executable output file every time
+Platforms/Windows/Debug
+
+# MacOS
+
+# Exclude all of SFGUI except /include and /lib and /bin
+External Libraries/Mac/SFGUI/*
+!External Libraries/Mac/SFGUI/include
+!External Libraries/Mac/SFGUI/lib
+!External Libraries/Mac/SFGUI/bin
+
+# Exclude all of SFML except /include and /lib and /bin
+External Libraries/Mac/SFML/*
+!External Libraries/Mac/SFML/include
+!External Libraries/Mac/SFML/lib
+!External Libraries/Mac/SFML/bin
+
+# Exclude Mac Eclipse project settings to not overwrite library file paths
+Platforms/Mac/.project
+Platforms/Mac/.settings
+
+# Exclude Mac project builds to not commit executable output file every time
+Platforms/Mac/Debug

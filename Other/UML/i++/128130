@@ -1,0 +1,5346 @@
+format 221
+"Code" // Code
+  revision 6
+  modified_by 2 "Admin"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_h_dir "E:\\Vasa\\University\\Courses\\Third Year\\CMPE 320\\Final Project\\i++\\Code/"
+  cpp_src_dir "E:\\Vasa\\University\\Courses\\Third Year\\CMPE 320\\Final Project\\i++\\Code/"
+  classview 128130 "Code"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    classdiagram 128130 "Class Diagram"
+      classdiagramsettings show_members_visibility yes show_members_multiplicity yes show_members_initialization yes show_attribute_modifiers yes member_max_width 0 show_relation_modifiers yes show_relation_visibility yes end
+      size A0-Landscape
+    end
+
+    sequencediagram 135042 "GUI Sequence Diagram"
+      sequencediagramsettings end
+      overlapping_bars size A0-Landscape
+    end
+
+    state 128002 "GUI Window State Machine"
+      stereotype "machine"
+      active
+      statediagram 135170 "GUI State Diagram"
+	statediagramsettings
+	 end
+	size A0-Landscape
+      end
+
+      state 128130 "Start"
+      end
+    end
+
+    class 128130 "CodingWindow"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment " ==================== CODING WINDOW CLASS ===================="
+      classrelation 128130 // <generalisation>
+	relation 128130 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 128130 // <generalisation>
+	  b parent class_ref 128258 // GUIWindow
+      end
+
+      attribute 128130 "codingWindow"
+	private explicit_type "sfg::Window::Ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Variables for drawing
+"
+      end
+
+      attribute 128258 "codingInfoWindow"
+	private explicit_type "sfg::Window::Ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128386 "infoLabel"
+	private explicit_type "sfg::Label::Ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128514 "infoButton"
+	private explicit_type "sfg::Button::Ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128642 "instructionsLabel"
+	private explicit_type "sfg::Label::Ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128770 "availableLinesOfCodeRect"
+	class_attribute private explicit_type "sf::FloatRect"
+	init_value "= sf::FloatRect(0, 0, 0, 0)"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Variables for mouse input
+"
+      end
+
+      attribute 128898 "currentLinesOfCodeRect"
+	class_attribute private explicit_type "sf::FloatRect"
+	init_value "= sf::FloatRect(0, 0, 0, 0)"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 128258 // availableLinesOfCode (<unidirectional association>)
+	relation 128258 --->
+	  stereotype "std::vector"
+	  a role_name "availableLinesOfCode" private
+	    comment " Lines of code
+"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}*> ${name}${value};
+"
+	    classrelation_ref 128258 // availableLinesOfCode (<unidirectional association>)
+	  b parent class_ref 128386 // LineOfCode
+      end
+
+      classrelation 128386 // currentLinesOfCode (<unidirectional association>)
+	relation 128386 --->
+	  stereotype "std::vector"
+	  a role_name "currentLinesOfCode" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}*> ${name}${value};
+"
+	    classrelation_ref 128386 // currentLinesOfCode (<unidirectional association>)
+	  b parent class_ref 128386 // LineOfCode
+      end
+
+      attribute 129026 "currentQuestionNumber"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " State variables
+"
+      end
+
+      attribute 129154 "currentSequenceIsCorrect"
+	private explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 142722 "infoWindowWasOpenOnHide"
+	private explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 128130 "loadQuestionData"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 1
+	  param in name "questionNumber" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Initialization and lines of code placement"
+      end
+
+      operation 128258 "initializeLinesOfCode"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 128386 "updateActivatedLineMode"
+	preserve_cpp_body_indent private explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Functions for switching active code frames and entering/exiting activated line mode"
+      end
+
+      operation 128514 "updateCurrentlySelectedFrame"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 128642 "setActiveFrame"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 1
+	  param in name "forceUpdate" explicit_type "bool"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 128770 "checkIfCurrentCodeIsCorrect"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== USER INTERACTION ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Function for checking if the current lines of code are correct"
+      end
+
+      operation 128898 "openInfoWindow"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Info window functions"
+      end
+
+      operation 129026 "hideInfoWindow"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 129154 "CodingWindow"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 1
+	  param inout name "_controller" type class_ref 128514 // Controller
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} * ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== CONSTRUCTOR / DESTRUCTOR ====================
+
+${inline}${class}::${name}${(}${t0} * ${p0}${)} : GUIWindow(_controller), infoWindowWasOpenOnHide(false) ${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Constructor / destructor"
+      end
+
+      operation 129282 "~CodingWindow"
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 129410 "initializeCodingWindowForNewQuestion"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param in name "questionNumber" explicit_type "int"
+	  param in name "firstTimeOpeningCodingWindow" explicit_type "bool"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== INITIALIZATION ====================
+
+${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Initialization and lines of code placement"
+      end
+
+      operation 129538 "isMouseOverAvailableCodeFrame"
+	class_operation preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Mouse functions"
+      end
+
+      operation 129666 "isMouseOverCurrentCodeFrame"
+	class_operation preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 129794 "update"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "deltaTime" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== UPDATE ====================
+
+${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Update GUI, called from Controller in draw loop"
+      end
+
+      operation 129922 "updateEvent"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "event" explicit_type "sf::Event"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Update GUI events, called from Controller in event loop"
+      end
+
+      operation 130050 "draw"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param inout name "window" explicit_type "sf::RenderWindow"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== DRAW ====================
+
+${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Draw GUI, called from Controller in draw loop"
+      end
+
+      operation 144258 "show"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== SHOW ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Show function"
+      end
+
+      operation 144386 "hide"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== HIDE / CLOSE ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Hide function"
+      end
+
+      operation 144514 "close"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Exit function"
+      end
+
+      attribute 129410 "useMouseControl"
+	class_attribute public explicit_type "bool"
+	init_value "= true"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " State variables
+"
+      end
+
+      attribute 129538 "isCurrentlyInAvailableLinesFrame"
+	class_attribute public explicit_type "bool"
+	init_value "= true"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 129666 "isCurrentlyInActivatedLineMode"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 129282 "infoWindowIsOpen"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 128514 // availableCodeFrame (<unidirectional association>)
+	relation 128514 --->
+	  a role_name "availableCodeFrame" init_value "= nullptr" class_relation public
+	    comment " Code frames
+"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 128514 // availableCodeFrame (<unidirectional association>)
+	  b parent class_ref 128642 // CodeFrame
+      end
+
+      classrelation 128642 // currentCodeFrame (<unidirectional association>)
+	relation 128642 --->
+	  a role_name "currentCodeFrame" init_value "= nullptr" class_relation public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 128642 // currentCodeFrame (<unidirectional association>)
+	  b parent class_ref 128642 // CodeFrame
+      end
+    end
+
+    class 128258 "GUIWindow"
+      abstract visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment " ==================== GUI WINDOW CLASS ===================="
+      classrelation 129282 // controller (<unidirectional association>)
+	relation 129282 --->
+	  a role_name "controller" protected
+	    comment " Pointer to controller
+"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 129282 // controller (<unidirectional association>)
+	  b parent class_ref 128514 // Controller
+      end
+
+      attribute 135682 "sfgui"
+	class_attribute protected explicit_type "sfg::SFGUI"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Variables for drawing
+"
+      end
+
+      attribute 135810 "mainDesktop"
+	protected explicit_type "sfg::Desktop"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 150146 "consolaFont"
+	class_attribute protected explicit_type "sf::Font"
+	stereotype "std::shared_ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Font
+"
+      end
+
+      attribute 142850 "isShown"
+	protected explicit_type "bool"
+	init_value "=  false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Flag to indicate if this window has been shown befire being drown
+ If this is false when the draw() function in invoked, the show() function is invoked before the drawing happens
+"
+      end
+
+      operation 136322 "GUIWindow"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 1
+	  param inout name "_controller" type class_ref 128514 // Controller
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} * ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== CONSTRUCTOR / DESTRUCTOR ====================
+
+${inline}${class}::${name}${(}${t0} * ${p0}${)} : controller(_controller) ${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Constructor / destructor"
+      end
+
+      operation 136450 "~GUIWindow"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 153602 "Initialize"
+	class_operation preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== INITIALIZE ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Initialize GUI, loads font and theme"
+      end
+
+      operation 136578 "update"
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
+	nparams 1
+	  param in name "deltaTime" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== UPDATE ====================
+
+${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Update GUI, called from Controller in draw loop"
+      end
+
+      operation 136706 "updateEvent"
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
+	nparams 1
+	  param in name "event" explicit_type "sf::Event"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Update GUI events, called from Controller in event loop"
+      end
+
+      operation 136834 "draw"
+	class_operation preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param inout name "window" explicit_type "sf::RenderWindow"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== DRAW ====================
+
+${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Draw GUI, called from Controller in draw loop"
+      end
+
+      operation 144642 "show"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+	comment " Show function moves the window to the correct position on screen"
+      end
+
+      operation 144770 "hide"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+	comment " Hide function moves the window off-screen"
+      end
+
+      operation 144898 "close"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+	comment " Close function, hides the window and indicated to stop updating it from Controller class"
+      end
+    end
+
+    class 128386 "LineOfCode"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment " ==================== LINE OF CODE CLASS ===================="
+      attribute 129794 "codeString"
+	private explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Instance variables
+"
+      end
+
+      attribute 129922 "label"
+	private explicit_type "sfg::Label::Ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 130050 "labelID"
+	private explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 130178 "sequenceID"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 130306 "LineOfCode"
+	cpp_inline public explicit_return_type ""
+	nparams 2
+	  param in name "_codeString" explicit_type "std::string"
+	  param in name "_sequenceID" explicit_type "int"
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${volatile}${throw}${abstract} : codeString(_codeString), sequenceID(_sequenceID) {};
+"
+	
+	
+	
+	
+	comment " Constructor / destructor"
+      end
+
+      operation 130434 "setLable"
+	cpp_inline public explicit_return_type "void"
+	nparams 2
+	  param in name "_label" explicit_type "sfg::Label::Ptr"
+	  param in name "_labelID" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract} {
+        label =_label;
+        labelID = _labelID;
+        //label->SetText(\"[\" + std::to_string(sequenceID) + \"] \" + codeString);
+        label->SetText(codeString);
+        label->SetAlignment(sf::Vector2f(0.0f, 0.5f));
+        label->SetId(labelID);
+    };
+"
+	
+	
+	
+	
+	comment "virtual ~LineOfCode() {delete label;}
+ Initialize"
+      end
+
+      operation 130562 "getCodeString"
+	cpp_inline public explicit_return_type "std::string"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {return codeString;};
+"
+	
+	
+	
+	
+	comment " Getters"
+      end
+
+      operation 130690 "getLable"
+	cpp_inline public explicit_return_type "sfg::Label::Ptr"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {return label;};
+"
+	
+	
+	
+	
+      end
+
+      operation 130818 "getLabelID"
+	cpp_inline public explicit_return_type "std::string"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {return labelID;};
+"
+	
+	
+	
+	
+      end
+
+      operation 130946 "getSequenceID"
+	cpp_inline public explicit_return_type "int"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {return sequenceID;};
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 128514 "Controller"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment " ==================== CLASS ===================="
+      operation 133250 "update"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== UPDATE ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Main game loop"
+      end
+
+      operation 212226 "updatePlayerMovement"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 2
+	  param in name "deltaTime" explicit_type "float"
+	  param in name "currentTime" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 133378 "getKeyboardInput"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Reading and handling of keyboard inputs"
+      end
+
+      operation 133506 "handleKeyboardInput"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 1
+	  param in name "playerPosition" explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 133634 "getMouseInput"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== HANDLE INPUT ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Reading of mouse inputs"
+      end
+
+      operation 153090 "setAllQuestionsNotSolved"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Reset question solved status"
+      end
+
+      classrelation 154754 // dude (<directional composition>)
+	relation 154754 *-->
+	  a role_name "dude" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 154754 // dude (<directional composition>)
+	  b parent class_ref 152706 // Character
+      end
+
+      classrelation 154882 // aDoor (<directional composition>)
+	relation 154882 *-->
+	  a role_name "aDoor" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 154882 // aDoor (<directional composition>)
+	  b parent class_ref 152834 // TDoor
+      end
+
+      classrelation 155010 // aBlender (<directional composition>)
+	relation 155010 *-->
+	  a role_name "aBlender" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 155010 // aBlender (<directional composition>)
+	  b parent class_ref 152962 // TBlender
+      end
+
+      classrelation 155138 // aKey (<directional composition>)
+	relation 155138 *-->
+	  a role_name "aKey" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 155138 // aKey (<directional composition>)
+	  b parent class_ref 153090 // TKey
+      end
+
+      classrelation 155266 // aClock (<directional composition>)
+	relation 155266 *-->
+	  a role_name "aClock" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 155266 // aClock (<directional composition>)
+	  b parent class_ref 153218 // TClock
+      end
+
+      attribute 131842 "window"
+	private explicit_type "sf::RenderWindow"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Variables for drawing
+"
+      end
+
+      classrelation 142594 // startMenu (<unidirectional association>)
+	relation 142594 --->
+	  a role_name "startMenu" private
+	    comment " Variables for the GUI windows
+"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 142594 // startMenu (<unidirectional association>)
+	  b parent class_ref 144258 // StartMenu
+      end
+
+      classrelation 128898 // codingWindow (<unidirectional association>)
+	relation 128898 --->
+	  a role_name "codingWindow" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 128898 // codingWindow (<unidirectional association>)
+	  b parent class_ref 128130 // CodingWindow
+      end
+
+      classrelation 135938 // pauseWindow (<unidirectional association>)
+	relation 135938 --->
+	  a role_name "pauseWindow" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 135938 // pauseWindow (<unidirectional association>)
+	  b parent class_ref 135554 // PauseWindow
+      end
+
+      classrelation 129026 // instructionsWindow (<unidirectional association>)
+	relation 129026 --->
+	  a role_name "instructionsWindow" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 129026 // instructionsWindow (<unidirectional association>)
+	  b parent class_ref 128898 // InstructionsWindow
+      end
+
+      classrelation 142722 // levelScreen (<unidirectional association>)
+	relation 142722 --->
+	  a role_name "levelScreen" private
+	    comment " Level screen
+"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 142722 // levelScreen (<unidirectional association>)
+	  b parent class_ref 144386 // LevelScreen
+      end
+
+      classrelation 129154 // gameState (<directional composition>)
+	relation 129154 *-->
+	  a role_name "gameState" private
+	    comment " State variables
+"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 129154 // gameState (<directional composition>)
+	  b parent class_ref 128770 // GameState
+      end
+
+      attribute 131970 "levelNumber"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 132098 "questionIsSolved"
+	private explicit_type "bool"
+	multiplicity "[NUMBER_OF_QUESTIONS_TOTAL]"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${multiplicity}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 132226 "hasFocus"
+	private explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 149762 "needToClose"
+	private explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 149890 "firstTimeOpeningCodingWindow"
+	private explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 133762 "Controller"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== CONSTRUCTOR / DESTRUCTOR ====================
+
+${inline}${class}::${name}${(}${)} : window(sf::VideoMode(WIDTH, HEIGHT), TITLE_TEXT, sf::Style::Titlebar | sf::Style::Close) ${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Constructor / destructor"
+      end
+
+      operation 133890 "~Controller"
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 134018 "start"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== START ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Start game function"
+      end
+
+      operation 153218 "exitGame"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== EXIT ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Exit game function"
+      end
+
+      operation 134146 "getGameState"
+	preserve_cpp_body_indent public return_type class_ref 128770 // GameState
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== GETTERS ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Getters"
+      end
+
+      operation 134274 "getCodingWindowState"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 134402 "getPauseWindowState"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 134530 "getInstructionsWindowState"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 134658 "getQuestionSolvedStatus"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 1
+	  param in name "questionNumber" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 134786 "setGameState"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 1
+	  param in name "gameStateToSet" type class_ref 128770 // GameState
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Setters"
+      end
+
+      operation 134914 "setQuestionSolvedStatus"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 2
+	  param in name "statusToSet" explicit_type "bool"
+	  param in name "questionNumber" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== SETTERS ====================
+
+${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 153346 "openStartMenuWindow"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== OPEN / CLOSE GUI WINDWOS ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Open / close GUI windows"
+      end
+
+      operation 153474 "closeStartMenuWindow"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 135042 "openCodingWindow"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 1
+	  param in name "questionNumber" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 135170 "closeCodingWindow"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 135298 "openPauseWindow"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 135426 "closePauseWindow"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 135554 "openInstructionsWindow"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 135682 "closeInstructionsWindow"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      attribute 132354 "codingWindowIsOpen"
+	public explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " State variables
+"
+      end
+
+      attribute 132482 "pauseWindowIsOpen"
+	public explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 132610 "instructionsWindowIsOpen"
+	public explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 150018 "gameStateDidChage_CodingWindow"
+	public explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 132738 "mousePosition"
+	class_attribute public explicit_type "sf::Vector2f"
+	init_value "= sf::Vector2f(0, 0)"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Keyboard input variables
+"
+      end
+
+      attribute 132866 "mouseLeftIsPressed"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 132994 "mouseLeftIsReleased"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 133122 "mouseLeftIsDown"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 133250 "keyUpIsPressed"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Keyboard input variables
+"
+      end
+
+      attribute 133378 "keyDownIsPressed"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 133506 "keyLeftIsPressed"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 133634 "keyRightIsPressed"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 133762 "keyUpIsDown"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 133890 "keyDownIsDown"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 134018 "keyLeftIsDown"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 134146 "keyRightIsDown"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 134274 "keyActionIsPressed"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 134402 "keyEscapeIsPressed"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 134530 "keyActionIsDown"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 134658 "keyEscapeIsDown"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 134786 "keySelectIsPressed"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 134914 "keyDeselectIsPressed"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 135042 "keySelectIsDown"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 135170 "keyDeselectIsDown"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 135298 "keyPauseIsDown"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 135426 "keyPauseIsPressed"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 170242 "keySpaceIsDown"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 170370 "keySpaceIsPressed"
+	class_attribute public explicit_type "bool"
+	init_value "= false"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 128642 "CodeFrame"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment " ==================== CODE FRAME CLASS ===================="
+      attribute 130306 "isAvailableLinesFrame"
+	private explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Instance variables
+"
+      end
+
+      classrelation 128770 // linesOfCode (<unidirectional association>)
+	relation 128770 --->
+	  stereotype "std::vector"
+	  a role_name "linesOfCode" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}*> ${name}${value};
+"
+	    classrelation_ref 128770 // linesOfCode (<unidirectional association>)
+	  b parent class_ref 128386 // LineOfCode
+      end
+
+      attribute 130434 "linesScrollBox"
+	private explicit_type "sfg::Box::Ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 130562 "numberOfTargetLines"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 130690 "numberOfLines"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 130818 "currentlySelectedLine"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 130946 "currentlySelectedLineInsertion"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 131074 "linesStartPoint"
+	private explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Variables for drawing
+"
+      end
+
+      attribute 131202 "linesDimensions"
+	private explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 131074 "moveCurrentlySelectedLineOfCode"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Move current line of code to the other frame"
+      end
+
+      operation 131202 "CodeFrame"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 2
+	  param in name "_isAvailableLinesFrame" explicit_type "bool"
+	  param in name "_linesScrollBox" explicit_type "sfg::Box::Ptr"
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== CODE FRAME CLASS ====================
+
+${inline}${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)} : isAvailableLinesFrame(_isAvailableLinesFrame), linesScrollBox(_linesScrollBox), numberOfLines(0) ${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Constructor / destructor"
+      end
+
+      operation 131330 "~CodeFrame"
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131458 "initialize"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "linesScrollWindow" explicit_type "sfg::ScrolledWindow::Ptr"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== INITIALIZE ====================
+
+${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Initialization"
+      end
+
+      operation 131586 "reInitialize"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131714 "addLineOfCodeAtEnd"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 1
+	  param inout name "lineOfCodeToAdd" type class_ref 128386 // LineOfCode
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Add / remove lines of code"
+      end
+
+      operation 131842 "addLineOfCode"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 1
+	  param inout name "lineOfCodeToAdd" type class_ref 128386 // LineOfCode
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== ADD / REMOVE LINES OF CODE ====================
+
+${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131970 "addLineOfCode"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 2
+	  param inout name "lineOfCodeToAdd" type class_ref 128386 // LineOfCode
+	  param in name "index" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132098 "removeLineOfCode"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 1
+	  param in name "index" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132226 "removeAllLinesOfCode"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132354 "hasCorrectSequenceOfLines"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== CHECK FOR CORRECT SEQUENCE OF LINES ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Check for correct sequence, only applicable to the current lines code frame"
+      end
+
+      operation 132482 "update"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "canMoveLineNow" explicit_type "bool"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== UPDATE ====================
+
+${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Update & draw"
+      end
+
+      operation 132610 "draw"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param inout name "window" explicit_type "sf::RenderWindow"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== DRAW ====================
+
+${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132738 "isEmpty"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== GETTERS ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Getters"
+      end
+
+      operation 132866 "getLinesDimensions"
+	preserve_cpp_body_indent public explicit_return_type "sf::Vector2f"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132994 "setNumberOfTargetLines"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "_numberOfTargetLines" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== SETTERS ====================
+
+${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Setters"
+      end
+
+      operation 133122 "incrementCurrentlySelectedLineInsertion"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 128770 "GameState"
+      visibility package stereotype "enum"
+      cpp_decl "${comment}enum ${name} {
+${items}};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment " ==================== MAIN DATA ====================
+ The current state of the game, only one of these is active at any given time
+ The instructions, coding, and pause windows are overlayed on top of the game screen, they are not separate states"
+      attribute 131330 "INITIALIZE"
+	public type class_ref 128770 // GameState
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 131458 "START_SCREEN"
+	public type class_ref 128770 // GameState
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 131586 "GAME_SCREEN"
+	public type class_ref 128770 // GameState
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 131714 "END_SCREEN"
+	public type class_ref 128770 // GameState
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 128898 "InstructionsWindow"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment " ==================== INSTRUCTIONS WINDOW CLASS ===================="
+      classrelation 129410 // <generalisation>
+	relation 129410 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 129410 // <generalisation>
+	  b parent class_ref 128258 // GUIWindow
+      end
+
+      attribute 135938 "instructionsWindow"
+	private explicit_type "sfg::Window::Ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Variables for drawing
+"
+      end
+
+      attribute 136194 "backButton"
+	private explicit_type "sfg::Button::Ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 137090 "InstructionsWindow"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 1
+	  param inout name "_controller" type class_ref 128514 // Controller
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} * ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== CONSTRUCTOR / DESTRUCTOR ====================
+
+${inline}${class}::${name}${(}${t0} * ${p0}${)} : GUIWindow(_controller) ${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Constructor / destructor"
+      end
+
+      operation 137218 "~InstructionsWindow"
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 137346 "update"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "deltaTime" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== UPDATE ====================
+
+${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Update GUI, called from Controller in draw loop"
+      end
+
+      operation 137474 "updateEvent"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "event" explicit_type "sf::Event"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Update GUI events, called from Controller in event loop"
+      end
+
+      operation 137602 "draw"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param inout name "window" explicit_type "sf::RenderWindow"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== DRAW ====================
+
+${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Draw GUI, called from Controller in draw loop"
+      end
+
+      operation 145026 "show"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== SHOW ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Show function"
+      end
+
+      operation 145154 "hide"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== HIDE / CLOSE ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Hide function"
+      end
+
+      operation 145282 "close"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Exit function"
+      end
+    end
+
+    class 129026 "Entity"
+      abstract visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment " ==================== CLASS ===================="
+      attribute 135554 "position"
+	protected explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 135810 "update"
+	cpp_virtual cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "deltaTime" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {};
+"
+	
+	
+	
+	
+	comment " Update & draw overrides"
+      end
+
+      operation 135938 "draw"
+	cpp_virtual cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "window" explicit_type "sf::RenderWindow"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {};
+"
+	
+	
+	
+	
+      end
+
+      operation 136066 "getPosition"
+	abstract cpp_virtual public explicit_return_type "sf::Vector2f"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+	comment " Movement overrides"
+      end
+
+      operation 136194 "doesIntersect"
+	abstract cpp_virtual public explicit_return_type "bool"
+	nparams 1
+	  param in name "inRect" explicit_type "sf::FloatRect"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 135554 "PauseWindow"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment " ==================== PAUSE WINDOW CLASS ===================="
+      classrelation 136066 // <generalisation>
+	relation 136066 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 136066 // <generalisation>
+	  b parent class_ref 128258 // GUIWindow
+      end
+
+      attribute 143234 "pauseWindow"
+	private explicit_type "sfg::Window::Ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Variables for drawing
+"
+      end
+
+      operation 145410 "PauseWindow"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 1
+	  param inout name "_controller" type class_ref 128514 // Controller
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} * ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== CONSTRUCTOR / DESTRUCTOR ====================
+
+${inline}${class}::${name}${(}${t0} * ${p0}${)} : GUIWindow(_controller) ${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Constructor / destructor"
+      end
+
+      operation 145538 "~PauseWindow"
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 145666 "exitToStartMenu"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== USER INTERACTION ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Functions invoked by buttons"
+      end
+
+      operation 145794 "openInstructionsWindow"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 145922 "update"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "deltaTime" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== UPDATE ====================
+
+${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Update GUI, called from Controller in draw loop"
+      end
+
+      operation 146050 "updateEvent"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "event" explicit_type "sf::Event"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Update GUI events, called from Controller in event loop"
+      end
+
+      operation 146178 "draw"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param inout name "window" explicit_type "sf::RenderWindow"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== DRAW ====================
+
+${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Draw GUI, called from Controller in draw loop"
+      end
+
+      operation 146306 "show"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== SHOW ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Show function"
+      end
+
+      operation 146434 "hide"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== HIDE / CLOSE ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Hide function"
+      end
+
+      operation 146562 "close"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Exit function"
+      end
+
+      attribute 142978 "returnButton"
+	private explicit_type "sfg::Button::Ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Variables for drawing
+"
+      end
+
+      attribute 143106 "ExitButton"
+	private explicit_type "sfg::Button::Ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 144258 "StartMenu"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment " ==================== START MENU CLASS ===================="
+      classrelation 143234 // <generalisation>
+	relation 143234 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 143234 // <generalisation>
+	  b parent class_ref 128258 // GUIWindow
+      end
+
+      attribute 152194 "startWindow"
+	private explicit_type "sfg::Window::Ptr"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Variables for drawing
+"
+      end
+
+      attribute 152322 "backgroundTexture"
+	private explicit_type "sf::Texture"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 152450 "backgroundSprite"
+	private explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 152578 "titleTexture"
+	private explicit_type "sf::Texture"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 152706 "titleSprite"
+	private explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 155522 "StartMenu"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 1
+	  param inout name "_controller" type class_ref 128514 // Controller
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} * ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== CONSTRUCTOR / DESTRUCTOR ====================
+
+${inline}${class}::${name}${(}${t0} * ${p0}${)} : GUIWindow(_controller) ${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Constructor / destructor"
+      end
+
+      operation 155650 "~StartMenu"
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 155778 "startGame"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== USER INTERACTION ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Functions invoked by buttons"
+      end
+
+      operation 155906 "openInstructionsWindow"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 156034 "quitGame"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 156162 "update"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "deltaTime" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== UPDATE ====================
+
+${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Update GUI, called from Controller in draw loop"
+      end
+
+      operation 156290 "updateEvent"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "event" explicit_type "sf::Event"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Update GUI events, called from Controller in event loop"
+      end
+
+      operation 156418 "draw"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param inout name "window" explicit_type "sf::RenderWindow"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== DRAW ====================
+
+${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Draw GUI, called from Controller in draw loop"
+      end
+
+      operation 156546 "show"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== SHOW ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Show function"
+      end
+
+      operation 156674 "hide"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== HIDE / CLOSE ====================
+
+${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Hide function"
+      end
+
+      operation 156802 "close"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Exit function"
+      end
+    end
+
+    class 144386 "LevelScreen"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment " ==================== LEVEL SCREEN CLASS ===================="
+      attribute 151682 "firstTileID"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Attributes
+"
+      end
+
+      attribute 151810 "viewport"
+	private explicit_type "sf::View"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " The viewport
+"
+      end
+
+      attribute 151938 "drawBoundary"
+	private explicit_type "float"
+	stereotype "sf::Rect"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 152066 "tilesetImage"
+	private explicit_type "sf::Texture"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " The tileset image that all the objects are drawn using
+"
+      end
+
+      classrelation 142978 // layers (<directional composition>)
+	relation 142978 *-->
+	  stereotype "std::vector"
+	  a role_name "layers" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 142978 // layers (<directional composition>)
+	  b parent class_ref 144642 // Layer
+      end
+
+      classrelation 143106 // controller (<unidirectional association>)
+	relation 143106 --->
+	  a role_name "controller" protected
+	    comment " Pointer to controller
+"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 143106 // controller (<unidirectional association>)
+	  b parent class_ref 128514 // Controller
+      end
+
+      operation 154114 "LevelScreen"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 1
+	  param inout name "_controller" type class_ref 128514 // Controller
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} * ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== LEVEL SCREEN CLASS ====================
+// ==================== CONSTRUCTOR / DESTRUCTOR ====================
+
+${inline}${class}::${name}${(}${t0} * ${p0}${)} : controller(_controller) ${throw}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Constructor / destructor"
+      end
+
+      operation 154242 "~LevelScreen"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 154370 "LoadFromFile"
+	preserve_cpp_body_indent public explicit_return_type "bool"
+	nparams 1
+	  param in name "filename" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== LOAD LEVEL ====================
+
+${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Load objects from leel file"
+      end
+
+      operation 154498 "setViewport"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 3
+	  param inout name "window" explicit_type "sf::RenderWindow"
+	  param inout name "centerPosition" explicit_type "sf::Vector2f"
+	  param in name "forceFullscreen" explicit_type "bool"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}, ${t1} & ${p1}${v1}, ${t2} ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== DRAW ====================
+
+${inline}${type} ${class}::${name}${(}${t0} & ${p0}, ${t1} & ${p1}, ${t2} ${p2}${)}${const}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Set the viewport (camera position)"
+      end
+
+      operation 154626 "GetObject"
+	preserve_cpp_body_indent public return_type class_ref 144514 // Object
+	nparams 1
+	  param in name "name" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== GETTERS ====================
+
+${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Getters"
+      end
+
+      operation 154754 "GetObjects"
+	preserve_cpp_body_indent public explicit_return_type "std::vector<Object>"
+	nparams 1
+	  param in name "name" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 154882 "GetAllObjects"
+	preserve_cpp_body_indent public explicit_return_type "std::vector<Object>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 155010 "GetTileSize"
+	preserve_cpp_body_indent public explicit_return_type "sf::Vector2i"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 155138 "draw"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param inout name "window" explicit_type "sf::RenderWindow"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Draw GUI, called from Controller in draw loop"
+      end
+
+      operation 155266 "update"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "deltaTime" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 155394 "updateEvent"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "event" explicit_type "sf::Event"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 142850 // objects (<directional composition>)
+	relation 142850 *-->
+	  stereotype "std::vector"
+	  a role_name "objects" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 142850 // objects (<directional composition>)
+	  b parent class_ref 144514 // Object
+      end
+
+      attribute 151170 "width"
+	public explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 151298 "height"
+	public explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 151426 "tileWidth"
+	public explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 151554 "tileHeight"
+	public explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 144514 "Object"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment " ==================== OBJECT CLASS ===================="
+      operation 153730 "GetPropertyInt"
+	preserve_cpp_body_indent public explicit_return_type "int"
+	nparams 1
+	  param in name "name" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "// ==================== OBJECT CLASS ====================
+// ==================== GETTERS ====================
+
+${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment " Getters"
+      end
+
+      operation 153858 "GetPropertyFloat"
+	preserve_cpp_body_indent public explicit_return_type "float"
+	nparams 1
+	  param in name "name" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 153986 "GetPropertyString"
+	preserve_cpp_body_indent public explicit_return_type "std::string"
+	nparams 1
+	  param in name "name" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      attribute 150274 "name"
+	public explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Attributes
+"
+      end
+
+      attribute 150402 "type"
+	public explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 150530 "properties"
+	public explicit_type "std::string, std::string"
+	stereotype "std::map"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " Additional properties
+"
+      end
+
+      attribute 150658 "sprite"
+	public explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " The image and positions + size
+"
+      end
+
+      attribute 150786 "rect"
+	public explicit_type "float"
+	stereotype "sf::Rect"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 144642 "Layer"
+      visibility package stereotype "struct"
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment " ==================== LAYER CLASS ===================="
+      attribute 150914 "opacity"
+	public explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " The opacity of all the tiles on this layer
+"
+      end
+
+      attribute 151042 "tiles"
+	public explicit_type "sf::Sprite"
+	stereotype "std::vector"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " All the tiles on this level
+"
+      end
+    end
+
+    class 152706 "Character"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      class 153474 "AnimationIndex"
+	visibility package stereotype "enum_class"
+	cpp_decl "${comment}enum class ${name} {
+${items}};
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	attribute 171778 "Stand"
+	  public type class_ref 153474 // AnimationIndex
+	  cpp_decl "  ${name}${value},${comment}"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 171906 "WalkLeft"
+	  public type class_ref 153474 // AnimationIndex
+	  cpp_decl "  ${name}${value},${comment}"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 172034 "WalkRight"
+	  public type class_ref 153474 // AnimationIndex
+	  cpp_decl "  ${name}${value},${comment}"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 172162 "Count"
+	  public type class_ref 153474 // AnimationIndex
+	  cpp_decl "  ${name}${value},${comment}"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+      end
+
+      operation 213506 "Character"
+	cpp_defaulted public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 213634 "Character"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "pos" explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract} : pos( pos ) {
+            
+            sprite.setTextureRect({0,0,96,96});
+            
+            //animations[int( AnimationIndex::Jump)] = Animation(96, 288, 96, 96); // below walking animations
+            animations[int(AnimationIndex::Stand)] = Animation(0, 0, 96, 96);
+            animations[int(AnimationIndex::WalkLeft)] = Animation(0, 96, 96, 96); //Bottom 
+            animations[int(AnimationIndex::WalkRight)] = Animation(0, 196, 96, 96); // Top, (size of one sprite box, position on sheet (row*size), size of each box, box size)
+
+        };
+"
+	
+	
+	
+	
+      end
+
+      operation 213762 "Draw"
+	const cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "rt" explicit_type "sf::RenderTarget"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			rt.draw( sprite );
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 213890 "setDirection"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "dir" explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+             vel = dir * speed;
+			 
+			if( dir.x > 0.0f ){
+				curAnimation = AnimationIndex::WalkRight; 
+			}
+			else if( dir.x < 0.0f){
+				curAnimation = AnimationIndex::WalkLeft;
+			}
+			else if( dir.x == 0.0f){
+				curAnimation = AnimationIndex::Stand;
+			}
+			else if( dir.y < 0.0f){
+				curAnimation = AnimationIndex::WalkLeft;
+			}
+        };
+"
+	
+	
+	
+	
+      end
+
+      operation 214018 "Updater"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "deltaTime" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+
+            // Only change position if not paused
+            //if(!Controller::pauseWindowIsOpen) {
+                //vel.y += 300.0f * deltaTime; // works when 
+                pos += (vel * deltaTime); 
+            //}
+			
+            animations[int( curAnimation )].Updater( deltaTime );
+            animations[int( curAnimation )].ApplyToSprite( sprite );
+            animations[int(curAnimation)].ApplyToBlender(spriteB);
+            animations[int(curAnimation)].ApplyToDoor(spriteD);
+            animations[int(curAnimation)].ApplyToKey(spriteK);
+            animations[int(curAnimation)].ApplyToClock(spriteC);
+            sprite.setPosition( pos );
+        };
+"
+	
+	
+	
+	
+      end
+
+      operation 214146 "getPosition"
+	cpp_inline public explicit_return_type "sf::Vector2f"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} { return pos;};
+"
+	
+	
+	
+	
+	comment " Accessor for player position to check if in front of interactive object"
+      end
+
+      operation 214274 "setPosition"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "posToSet" explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} { pos = posToSet; };
+"
+	
+	
+	
+	
+      end
+
+      operation 214402 "getRect"
+	cpp_inline public explicit_return_type "sf::Rect<float>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+        	sf::Rect<float> rect(pos, sf::Vector2f(96,96));
+        	return rect;
+        };
+"
+	
+	
+	
+	
+      end
+
+      attribute 172290 "speed"
+	class_attribute private explicit_type "float"
+	init_value "=  100.0f"
+	cpp_constexpr cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 172418 "pos"
+	private explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 172546 "vel"
+	private explicit_type "sf::Vector2f"
+	init_value "=  {0.0f, 2.0f}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " updater to remove when with controller "
+      end
+
+      attribute 172674 "sprite"
+	private explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 172802 "spriteB"
+	private explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 172930 "spriteD"
+	private explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 173058 "spriteK"
+	private explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 173186 "spriteC"
+	private explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 155394 // animations (<directional composition>)
+	relation 155394 *-->
+	  a role_name "animations" multiplicity "[int( AnimationIndex::Count )]" private
+	    comment "array of different animations "
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${multiplicity}${value};
+"
+	    classrelation_ref 155394 // animations (<directional composition>)
+	  b parent class_ref 153346 // Animation
+      end
+
+      classrelation 155522 // curAnimation (<directional composition>)
+	relation 155522 *-->
+	  a role_name "curAnimation" init_value "=  AnimationIndex::Stand" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	    classrelation_ref 155522 // curAnimation (<directional composition>)
+	  b parent class_ref 153474 // AnimationIndex
+      end
+    end
+
+    class 152834 "TDoor"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      class 153602 "AnimationIndex"
+	visibility package stereotype "enum_class"
+	cpp_decl "${comment}enum class ${name} {
+${items}};
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	attribute 173314 "Stand"
+	  public type class_ref 153602 // AnimationIndex
+	  cpp_decl "  ${name}${value},${comment}"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 173442 "Count"
+	  public type class_ref 153602 // AnimationIndex
+	  cpp_decl "  ${name}${value},${comment}"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+      end
+
+      operation 214530 "TDoor"
+	cpp_defaulted public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 214658 "TDoor"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "pos" explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract} :  pos( pos ) {
+        spriteD.setTextureRect({0, 0, 96, 96}); // 34:37 in video
+        animations[int(AnimationIndex::Stand)] = Animation(0, 0, 96, 96);
+     };
+"
+	
+	
+	
+	
+      end
+
+      operation 214786 "Draw"
+	const cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "rt" explicit_type "sf::RenderTarget"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+        rt.draw(spriteD);
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 214914 "Updater"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "deltaTime" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+        animations[int(curAnimation)].Updater(0 /* deltaTime */); // Don't animate door for now
+        animations[int(curAnimation)].ApplyToDoor(spriteD);
+        spriteD.setPosition(pos);
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 215042 "getPosition"
+	cpp_inline public explicit_return_type "sf::Vector2f"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} { return pos;};
+"
+	
+	
+	
+	
+	comment " Function to get position to compare to player position"
+      end
+
+      operation 215170 "getRect"
+	cpp_inline public explicit_return_type "sf::Rect<float>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+		sf::Rect<float> rect(pos, sf::Vector2f(96,96));
+		return rect;
+	};
+"
+	
+	
+	
+	
+      end
+
+      attribute 173570 "speed"
+	class_attribute private explicit_type "float"
+	init_value "=  100.0f"
+	cpp_constexpr cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 173698 "vel"
+	private explicit_type "sf::Vector2f"
+	init_value "=  {0.0f, 0.0f}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " updater to remove when with controller "
+      end
+
+      attribute 173826 "pos"
+	private explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 173954 "spriteD"
+	private explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 155650 // animations (<directional composition>)
+	relation 155650 *-->
+	  a role_name "animations" multiplicity "[int(AnimationIndex::Count)]" private
+	    comment "array of different animations"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${multiplicity}${value};
+"
+	    classrelation_ref 155650 // animations (<directional composition>)
+	  b parent class_ref 153346 // Animation
+      end
+
+      classrelation 155778 // curAnimation (<directional composition>)
+	relation 155778 *-->
+	  a role_name "curAnimation" init_value "=  AnimationIndex::Stand" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	    classrelation_ref 155778 // curAnimation (<directional composition>)
+	  b parent class_ref 153602 // AnimationIndex
+      end
+    end
+
+    class 152962 "TBlender"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      class 153730 "AnimationIndex"
+	visibility package stereotype "enum_class"
+	cpp_decl "${comment}enum class ${name} {
+${items}};
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	attribute 174082 "Stand"
+	  public type class_ref 153730 // AnimationIndex
+	  cpp_decl "  ${name}${value},${comment}"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 174210 "Count"
+	  public type class_ref 153730 // AnimationIndex
+	  cpp_decl "  ${name}${value},${comment}"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+      end
+
+      operation 215298 "TBlender"
+	cpp_defaulted public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 215426 "TBlender"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "pos" explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract} : pos(pos) {
+        spriteB.setTextureRect({0, 0, 32, 32}); // 34:37 in video
+        animations[int(AnimationIndex::Stand)] = Animation(0, 0, 32, 32);
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 215554 "Draw"
+	const cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "rt" explicit_type "sf::RenderTarget"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+        rt.draw(spriteB);
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 215682 "Updater"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "deltaTime" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+        animations[int(curAnimation)].Updater(deltaTime);
+        animations[int(curAnimation)].ApplyToBlender(spriteB);
+        spriteB.setPosition(pos);
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 215810 "getPosition"
+	cpp_inline public explicit_return_type "sf::Vector2f"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} { return pos;};
+"
+	
+	
+	
+	
+	comment " Function to get position to compare to player position"
+      end
+
+      operation 215938 "getRect"
+	cpp_inline public explicit_return_type "sf::Rect<float>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+		sf::Rect<float> rect(pos, sf::Vector2f(32,32));
+		return rect;
+	};
+"
+	
+	
+	
+	
+      end
+
+      attribute 174338 "speed"
+	class_attribute private explicit_type "float"
+	init_value "=  100.0f"
+	cpp_constexpr cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 174466 "vel"
+	private explicit_type "sf::Vector2f"
+	init_value "=  {0.0f, 0.0f}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " updater to remove when with controller"
+      end
+
+      attribute 174594 "pos"
+	private explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 174722 "spriteB"
+	private explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 155906 // animations (<directional composition>)
+	relation 155906 *-->
+	  a role_name "animations" multiplicity "[int(AnimationIndex::Count)]" private
+	    comment "array of different animations"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${multiplicity}${value};
+"
+	    classrelation_ref 155906 // animations (<directional composition>)
+	  b parent class_ref 153346 // Animation
+      end
+
+      classrelation 156034 // curAnimation (<directional composition>)
+	relation 156034 *-->
+	  a role_name "curAnimation" init_value "=  AnimationIndex::Stand" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	    classrelation_ref 156034 // curAnimation (<directional composition>)
+	  b parent class_ref 153730 // AnimationIndex
+      end
+    end
+
+    class 153090 "TKey"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      class 153858 "AnimationIndex"
+	visibility package stereotype "enum_class"
+	cpp_decl "${comment}enum class ${name} {
+${items}};
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	attribute 174850 "Stand"
+	  public type class_ref 153858 // AnimationIndex
+	  cpp_decl "  ${name}${value},${comment}"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 174978 "Count"
+	  public type class_ref 153858 // AnimationIndex
+	  cpp_decl "  ${name}${value},${comment}"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+      end
+
+      operation 216066 "TKey"
+	cpp_defaulted public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 216194 "TKey"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "pos" explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract} : pos(pos) {
+        spriteK.setTextureRect({0, 0, 32, 32}); // 34:37 in video
+        animations[int(AnimationIndex::Stand)] = Animation(0, 0, 32, 32);
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 216322 "Draw"
+	const cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "rt" explicit_type "sf::RenderTarget"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+        rt.draw(spriteK);
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 216450 "Updater"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "deltaTime" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+//        pos = pos;
+        animations[int(curAnimation)].Updater(deltaTime);
+        animations[int(curAnimation)].ApplyToKey(spriteK);
+        spriteK.setPosition(pos);
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 216578 "getPosition"
+	cpp_inline public explicit_return_type "sf::Vector2f"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} { return pos;};
+"
+	
+	
+	
+	
+	comment " Function to get position to compare to player position"
+      end
+
+      operation 216706 "getRect"
+	cpp_inline public explicit_return_type "sf::Rect<float>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+		sf::Rect<float> rect(pos, sf::Vector2f(32,32));
+		return rect;
+	};
+"
+	
+	
+	
+	
+      end
+
+      attribute 175106 "speed"
+	class_attribute private explicit_type "float"
+	init_value "=  200.0f"
+	cpp_constexpr cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 175234 "vel"
+	private explicit_type "sf::Vector2f"
+	init_value "=  {0.0f, 0.0f}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " updater to remove when with controller"
+      end
+
+      attribute 175362 "pos"
+	private explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 175490 "spriteK"
+	private explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 156162 // animations (<directional composition>)
+	relation 156162 *-->
+	  a role_name "animations" multiplicity "[int(AnimationIndex::Count)]" private
+	    comment "array of different animations"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${multiplicity}${value};
+"
+	    classrelation_ref 156162 // animations (<directional composition>)
+	  b parent class_ref 153346 // Animation
+      end
+
+      classrelation 156290 // curAnimation (<directional composition>)
+	relation 156290 *-->
+	  a role_name "curAnimation" init_value "=  AnimationIndex::Stand" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	    classrelation_ref 156290 // curAnimation (<directional composition>)
+	  b parent class_ref 153858 // AnimationIndex
+      end
+    end
+
+    class 153218 "TClock"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      class 153986 "AnimationIndex"
+	visibility package stereotype "enum_class"
+	cpp_decl "${comment}enum class ${name} {
+${items}};
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	attribute 175618 "Stand"
+	  public type class_ref 153986 // AnimationIndex
+	  cpp_decl "  ${name}${value},${comment}"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+
+	attribute 175746 "Count"
+	  public type class_ref 153986 // AnimationIndex
+	  cpp_decl "  ${name}${value},${comment}"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	end
+      end
+
+      operation 216834 "TClock"
+	cpp_defaulted public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 216962 "TClock"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "pos" explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract} : pos(pos) {
+        spriteC.setTextureRect({0, 0, 32, 32}); // 34:37 in video
+        animations[int(AnimationIndex::Stand)] = Animation(0, 0, 32, 32);
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 217090 "Draw"
+	const cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "rt" explicit_type "sf::RenderTarget"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+        rt.draw(spriteC);
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 217218 "Updater"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "deltaTime" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+        animations[int(curAnimation)].Updater(deltaTime);
+        animations[int(curAnimation)].ApplyToClock(spriteC);
+        spriteC.setPosition(pos);
+    };
+"
+	
+	
+	
+	
+      end
+
+      operation 217346 "getPosition"
+	cpp_inline public explicit_return_type "sf::Vector2f"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} { return pos;};
+"
+	
+	
+	
+	
+	comment " Function to get position to compare to player position"
+      end
+
+      operation 217474 "getRect"
+	cpp_inline public explicit_return_type "sf::Rect<float>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+		sf::Rect<float> rect(pos, sf::Vector2f(32,32));
+		return rect;
+	};
+"
+	
+	
+	
+	
+      end
+
+      attribute 175874 "speed"
+	class_attribute private explicit_type "float"
+	init_value "=  100.0f"
+	cpp_constexpr cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 176002 "vel"
+	private explicit_type "sf::Vector2f"
+	init_value "=  {0.0f, 0.0f}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment " updater to remove when with controller"
+      end
+
+      attribute 176130 "pos"
+	private explicit_type "sf::Vector2f"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 176258 "spriteC"
+	private explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 156418 // animations (<directional composition>)
+	relation 156418 *-->
+	  a role_name "animations" multiplicity "[int(AnimationIndex::Count)]" private
+	    comment "array of different animations"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${multiplicity}${value};
+"
+	    classrelation_ref 156418 // animations (<directional composition>)
+	  b parent class_ref 153346 // Animation
+      end
+
+      classrelation 156546 // curAnimation (<directional composition>)
+	relation 156546 *-->
+	  a role_name "curAnimation" init_value "=  AnimationIndex::Stand" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	    classrelation_ref 156546 // curAnimation (<directional composition>)
+	  b parent class_ref 153986 // AnimationIndex
+      end
+    end
+
+    class 153346 "Animation"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 212354 "Animation"
+	cpp_defaulted public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 212482 "Animation"
+	cpp_inline public explicit_return_type ""
+	nparams 4
+	  param in name "x" explicit_type "int"
+	  param in name "y" explicit_type "int"
+	  param in name "width" explicit_type "int"
+	  param in name "height" explicit_type "int"
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}, ${t3} ${p3}${v3}${)}${volatile}${throw}${abstract} {
+            texture.loadFromFile( \"Hero2.png\" );
+            blender.loadFromFile( \"Blender.png\" );
+            door.loadFromFile( \"BadDoor.png\" );
+            key.loadFromFile( \"Key.png\" );
+            theclock.loadFromFile( \"Clock.png\" );			
+
+            for (int i = 0; i < nFrames; i++){
+                frames[i] = {x + i * width, y, width, height};
+            }
+        };
+"
+	
+	
+	
+	
+      end
+
+      operation 212610 "ApplyToSprite"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "s" explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+            s.setTexture( texture );
+            s.setTextureRect( frames[iFrame]);
+        };
+"
+	
+	
+	
+	
+      end
+
+      operation 212738 "ApplyToBlender"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "s" explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+            s.setTexture( blender );
+            s.setTextureRect( frames[iFrame]);
+        };
+"
+	
+	
+	
+	
+	comment " Items "
+      end
+
+      operation 212866 "ApplyToDoor"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "s" explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+            s.setTexture( door );
+            s.setTextureRect( frames[iFrame]);
+        };
+"
+	
+	
+	
+	
+      end
+
+      operation 212994 "ApplyToKey"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "s" explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+            s.setTexture( key );
+            s.setTextureRect( frames[iFrame]);
+        };
+"
+	
+	
+	
+	
+      end
+
+      operation 213122 "ApplyToClock"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "s" explicit_type "sf::Sprite"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+            s.setTexture( theclock );
+            s.setTextureRect( frames[iFrame]);
+        };
+"
+	
+	
+	
+	
+      end
+
+      operation 213250 "Updater"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "deltaTime" explicit_type "float"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+            time += deltaTime;
+            while (time >= holdTime){
+                time -= holdTime;
+                Advance();
+            }
+        };
+"
+	
+	
+	
+	
+      end
+
+      operation 213378 "Advance"
+	cpp_inline private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+            if ( ++iFrame >= nFrames){
+                iFrame = 0;
+            }
+        };
+"
+	
+	
+	
+	
+      end
+
+      attribute 170498 "nFrames"
+	class_attribute private explicit_type "int"
+	init_value "=  8"
+	cpp_constexpr cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 170626 "holdTime"
+	class_attribute private explicit_type "float"
+	init_value "=  0.1f"
+	cpp_constexpr cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 170754 "texture"
+	private explicit_type "sf::Texture"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 170882 "blender"
+	private explicit_type "sf::Texture"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 171010 "door"
+	private explicit_type "sf::Texture"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 171138 "key"
+	private explicit_type "sf::Texture"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 171266 "theclock"
+	private explicit_type "sf::Texture"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 171394 "frames"
+	private explicit_type "sf::IntRect"
+	multiplicity "[nFrames]"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${multiplicity}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 171522 "iFrame"
+	private explicit_type "int"
+	init_value "=  0"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 171650 "time"
+	private explicit_type "float"
+	init_value "=  0.0f"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${h_value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+  end
+
+  deploymentview 128130 "Code"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 128130 "CodingWindow"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 128130 // CodingWindow
+	class_ref 128386 // LineOfCode
+	class_ref 128642 // CodeFrame
+      end
+    end
+
+    artifact 128258 "Constants"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 128770 // GameState
+      end
+    end
+
+    artifact 128386 "Controller"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 128514 // Controller
+      end
+    end
+
+    artifact 128514 "Entity"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 129026 // Entity
+      end
+    end
+
+    artifact 128642 "GUIWindow"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 128258 // GUIWindow
+      end
+    end
+
+    artifact 128770 "InstructionsWindow"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 128898 // InstructionsWindow
+      end
+    end
+
+    artifact 128898 "main"
+      stereotype "source"
+      cpp_src "// ==================== MAIN====================
+
+int main() {
+
+	// ==================== CREATE AND RUN GAME ====================
+
+	Controller controller;
+	controller.start();
+
+	// ==================== EXIT AFTER GAME WINDOW CLOSED ====================
+
+	return EXIT_SUCCESS;
+}
+"
+      associated_elems
+      end
+    end
+
+    artifact 135426 "PauseWindow"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 135554 // PauseWindow
+      end
+    end
+
+    artifact 141954 "LevelScreen"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 144514 // Object
+	class_ref 144642 // Layer
+	class_ref 144386 // LevelScreen
+      end
+    end
+
+    artifact 142082 "StartMenu"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 144258 // StartMenu
+      end
+    end
+
+    artifact 148994 "Player"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 153346 // Animation
+	class_ref 152706 // Character
+	class_ref 152834 // TDoor
+	class_ref 152962 // TBlender
+	class_ref 153090 // TKey
+	class_ref 153218 // TClock
+      end
+    end
+  end
+
+  package_ref 134658 // TinyXML
+end

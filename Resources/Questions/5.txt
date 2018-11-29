@@ -1,0 +1,50 @@
+[Target]
+#include <iostream>
+using namespace std;
+int main() {
+	int startCar[5];
+	startCar[0] = 1;
+	startCar[1] = 5;
+	startCar[2] = -8;
+	startCar[3] = 16;
+	startCar[4] = -11;
+	int carStarted[5];
+	carStarted[0] = startCar[4];
+	carStarted[1] = startCar[2];
+	carStarted[2] = startCar[0];
+	carStarted[3] = startCar[1];
+	carStarted[4] = startCar[3];	
+}
+[Available]
+10
+11
+12
+13
+14
+15
+carStarted[0] = -11;
+carStarted[0] = startCar[0]
+carStarted[1] = startCar[4]
+carStarted[1] = -8;
+carStarted[2] = startCar[1]
+carStarted[2] = 1;
+carStarted[3] = startCar[2]
+carStarted[3] = 5;
+carStarted[4] = startCar[3]
+carStarted[4] = 16;
+[Current]
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+[Instructions]
+The car won't start because the elements 
+are in the wrong order! In order to start 
+the car, you must organize the elements into 
+the new array "carStarted" in ascending order.

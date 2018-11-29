@@ -1,0 +1,41 @@
+[Target]
+#include <iostream>
+using namespace std;
+int main() {
+    char parkingSpot1 = 'A';
+    char parkingSpot2 = 'B';
+    string purpose   = "Interview";
+    int hour         = 11;
+    int minute       = 28;
+    string morning   = "a.m";
+	cout << "Parking spot " << parkingSpot1 << " is where you parked" << "\n";
+	cout << "Time parked: " << hour << "\:" << minute << morning << "\n";
+	cout << "Purpose of parking: " << purpose;
+}
+[Available]
+9
+10
+11
+cout << "Parking spot " << parkingSpot1 << " is where you parked";
+cout << "Parking spot " << parkingSpot2 << " is where you parked";
+cout << "Time parked: " << hour << "\:" << minute << morning;
+cout << "Time parked: " << hour << "/:" << minute << morning;
+cout << "Purpose of parking: " << purpose << "\n";
+[Current]
+0
+1
+2
+3
+5
+6
+7
+8
+12
+[Instructions]
+You have reached your parking spot. 
+Match the expected output to remember your 
+parking information. Expected output:
+"Parking spot A is where you parked
+ Time parked: 11:28a.m
+ Purpose of parking: Interview"
+

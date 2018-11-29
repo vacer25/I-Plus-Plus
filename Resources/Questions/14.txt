@@ -1,0 +1,57 @@
+[Target]
+#include <iostream>
+using namespace std;
+unsigned int russianPeasant(unsigned int a, unsigned int b) 
+{ 
+    int res = 0;
+    while (b > 0) 
+    { 
+         if (b & 1) 
+             res = res + a; 
+         a = a << 1; 
+         b = b >> 1; 
+     } 
+     return res; 
+} 
+int main() 
+{ 
+    cout << russianPeasant(18, 1) << endl; 
+    cout << russianPeasant(20, 12) << endl; 
+    return 0; 
+} 
+[Available]
+5
+7
+9
+10
+19
+while (a>0)
+while (b<0)
+if (a & 1)
+a = a >> 1; 
+b = b << 1; 
+return 1;
+
+[Current]
+0
+1
+2
+3
+6
+8
+11
+12
+13
+14
+15
+16
+17
+18
+[Instructions]
+Write a program that multiples two integers 
+together without using the multiplication 
+symbol (*). Hint: Use the russian peasant 
+algorithm. Expected Output:
+"18
+ 240"
+

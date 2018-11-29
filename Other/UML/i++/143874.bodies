@@ -1,0 +1,165 @@
+class TiXmlHandle
+!!!200450.cpp!!!	FirstChild() : TiXmlHandle
+
+	if ( node )
+	{
+		TiXmlNode* child = node->FirstChild();
+		if ( child )
+			return TiXmlHandle( child );
+	}
+	return TiXmlHandle( 0 );
+!!!200578.cpp!!!	FirstChild(in value : char) : TiXmlHandle
+
+	if ( node )
+	{
+		TiXmlNode* child = node->FirstChild( value );
+		if ( child )
+			return TiXmlHandle( child );
+	}
+	return TiXmlHandle( 0 );
+!!!200706.cpp!!!	FirstChildElement() : TiXmlHandle
+
+	if ( node )
+	{
+		TiXmlElement* child = node->FirstChildElement();
+		if ( child )
+			return TiXmlHandle( child );
+	}
+	return TiXmlHandle( 0 );
+!!!200834.cpp!!!	FirstChildElement(in value : char) : TiXmlHandle
+
+	if ( node )
+	{
+		TiXmlElement* child = node->FirstChildElement( value );
+		if ( child )
+			return TiXmlHandle( child );
+	}
+	return TiXmlHandle( 0 );
+!!!220546.cpp!!!	Child(in value : char, in count : int) : TiXmlHandle
+
+	if ( node )
+	{
+		int i;
+		TiXmlNode* child = node->FirstChild( value );
+		for (	i=0;
+				child && i<count;
+				child = child->NextSibling( value ), ++i )
+		{
+			// nothing
+		}
+		if ( child )
+			return TiXmlHandle( child );
+	}
+	return TiXmlHandle( 0 );
+!!!220674.cpp!!!	Child(in count : int) : TiXmlHandle
+
+	if ( node )
+	{
+		int i;
+		TiXmlNode* child = node->FirstChild();
+		for (	i=0;
+				child && i<count;
+				child = child->NextSibling(), ++i )
+		{
+			// nothing
+		}
+		if ( child )
+			return TiXmlHandle( child );
+	}
+	return TiXmlHandle( 0 );
+!!!220802.cpp!!!	ChildElement(in value : char, in count : int) : TiXmlHandle
+
+	if ( node )
+	{
+		int i;
+		TiXmlElement* child = node->FirstChildElement( value );
+		for (	i=0;
+				child && i<count;
+				child = child->NextSiblingElement( value ), ++i )
+		{
+			// nothing
+		}
+		if ( child )
+			return TiXmlHandle( child );
+	}
+	return TiXmlHandle( 0 );
+!!!220930.cpp!!!	ChildElement(in count : int) : TiXmlHandle
+
+	if ( node )
+	{
+		int i;
+		TiXmlElement* child = node->FirstChildElement();
+		for (	i=0;
+				child && i<count;
+				child = child->NextSiblingElement(), ++i )
+		{
+			// nothing
+		}
+		if ( child )
+			return TiXmlHandle( child );
+	}
+	return TiXmlHandle( 0 );
+!!!200962.cpp!!!	Child(in value : char, in count : int) : TiXmlHandle
+
+	if ( node )
+	{
+		int i;
+		TiXmlNode* child = node->FirstChild( value );
+		for (	i=0;
+				child && i<count;
+				child = child->NextSibling( value ), ++i )
+		{
+			// nothing
+		}
+		if ( child )
+			return TiXmlHandle( child );
+	}
+	return TiXmlHandle( 0 );
+!!!201090.cpp!!!	Child(in count : int) : TiXmlHandle
+
+	if ( node )
+	{
+		int i;
+		TiXmlNode* child = node->FirstChild();
+		for (	i=0;
+				child && i<count;
+				child = child->NextSibling(), ++i )
+		{
+			// nothing
+		}
+		if ( child )
+			return TiXmlHandle( child );
+	}
+	return TiXmlHandle( 0 );
+!!!201218.cpp!!!	ChildElement(in value : char, in count : int) : TiXmlHandle
+
+	if ( node )
+	{
+		int i;
+		TiXmlElement* child = node->FirstChildElement( value );
+		for (	i=0;
+				child && i<count;
+				child = child->NextSiblingElement( value ), ++i )
+		{
+			// nothing
+		}
+		if ( child )
+			return TiXmlHandle( child );
+	}
+	return TiXmlHandle( 0 );
+!!!201346.cpp!!!	ChildElement(in count : int) : TiXmlHandle
+
+	if ( node )
+	{
+		int i;
+		TiXmlElement* child = node->FirstChildElement();
+		for (	i=0;
+				child && i<count;
+				child = child->NextSiblingElement(), ++i )
+		{
+			// nothing
+		}
+		if ( child )
+			return TiXmlHandle( child );
+	}
+	return TiXmlHandle( 0 );
