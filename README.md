@@ -10,6 +10,11 @@ Originally created as a CISC/CMPE 320 final project in collaboration with:
 
 <hr>
 
+The MVP demo of the game as of November 27, 2018:
+<img src="Other/MVP Demo (November 27, 2018).gif" alt="MVP Demo GIF"/>
+
+<hr>
+
 **Directory Structure:**
 
 `i++/Code`
@@ -34,11 +39,11 @@ Contains other related non-code files that are not part of the main project (Cla
 
 <hr>
 The original overview of the game (created when the project was started) is shown in the diagram below:
-<img src="Other/Original_Summary_Diagram.png" alt="Original commits"/>
+<img src="Other/Original_Summary_Diagram.png" alt="Original Summary Diagram"/>
 
 <hr>
 When the project was moved to this repository, the original commits were not transferred.
 However, the branch history is shown below as a reminder of all the hard work that was put into this project by all the team members mentioned above:
 <p>
-  <img src="Other/Original_Commits.png" alt="Original commits" width="900px"/>
+  <img src="Other/Original_Commits.png" alt="Original Commits" width="900px"/>
 </p>
