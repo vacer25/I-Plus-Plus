@@ -1,6 +1,7 @@
 ## `i++` is a platformer game where the player has to complete challenges by solving `C++` programming puzzles
 <hr>
 Originally created as a CISC/CMPE 320 final project in collaboration with:
+
 - Evan Latsky ([@evanlatsky](https://github.com/evanlatsky))
 - Daniel Lok ([@DannLK](https://github.com/DannLK))
 - Katy Scott
@@ -38,4 +39,6 @@ The original overview of the game (created when the project was started) is show
 <hr>
 When the project was moved to this repository, the original commits were not transferred.
 However, the branch history is shown below as a reminder of all the hard work that was put into this project by all the team members mentioned above:
-![Original Commits](Other/Original_Commits.png?raw=true)
+<p>
+  <img src="Other/Original_Commits.png" alt="Original commits" width="900px"/>
+</p>
