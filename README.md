@@ -17,23 +17,23 @@ The MVP demo of the game as of November 27, 2018:
 
 **Directory Structure:**
 
-`i++/Code`
+`Code`
 <br>
 Contains the actual code for the main project
 
-`i++/Platforms`
+`Platforms`
 <br>
 Contains the actual project files for the main project (separate for Windows (CodeLite) and Mac (Eclipse))
 
-`i++/External Libraries`
+`External Libraries`
 <br>
 Contains the external library files required for the main project (separate for Windows and Mac (SFML and SFGUI))
 
-`i++/Resources`
+`Resources`
 <br>
 Contains all the non-code assets for the main project (graphics and others)
 
-`i++/Other`
+`Other`
 <br>
 Contains other related non-code files that are not part of the main project (Class diagram and screenshots)
 
